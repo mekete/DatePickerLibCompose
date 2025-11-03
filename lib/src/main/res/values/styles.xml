@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Base Material theme with motion attributes -->
+  <style name="Base.Theme.Material3" parent="android:Theme.Material.Light">
+    <!-- Motion durations -->
+    <item name="motionDurationLong2">@integer/m3_sys_motion_duration_long2</item>
+    <item name="motionDurationMedium4">@integer/m3_sys_motion_duration_medium4</item>
+
+    <!-- Motion easing -->
+    <item name="motionEasingEmphasizedInterpolator">@anim/m3_sys_motion_easing_emphasized</item>
+  </style>
+</resources>

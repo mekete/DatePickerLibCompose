@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Motion duration attributes -->
+  <attr name="motionDurationLong2" format="integer"/>
+  <attr name="motionDurationMedium4" format="integer"/>
+
+  <!-- Motion easing attributes -->
+  <attr name="motionEasingEmphasizedInterpolator" format="reference"/>
+</resources>
