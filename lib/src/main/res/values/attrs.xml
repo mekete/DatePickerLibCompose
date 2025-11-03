@@ -1,9 +1,593 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  Material Components for Android - Merged Attributes
+  This file combines attrs.xml from multiple Material Components
+-->
 <resources>
-  <!-- Motion duration attributes -->
+
+  <!-- ========================================== -->
+  <!-- Motion Attributes -->
+  <!-- ========================================== -->
   <attr name="motionDurationLong2" format="integer"/>
   <attr name="motionDurationMedium4" format="integer"/>
-
-  <!-- Motion easing attributes -->
   <attr name="motionEasingEmphasizedInterpolator" format="reference"/>
+
+  <!-- ========================================== -->
+  <!-- Shape Attrs -->
+  <!-- ========================================== -->
+  <declare-styleable name="MaterialShape">
+    <attr name="shapeAppearance" format="reference"/>
+    <attr name="shapeAppearanceOverlay" format="reference"/>
+  </declare-styleable>
+  <declare-styleable name="ShapeAppearance">
+    <attr name="cornerSize" format="dimension|fraction"/>
+    <attr name="cornerSizeTopLeft" format="dimension|fraction"/>
+    <attr name="cornerSizeTopRight" format="dimension|fraction"/>
+    <attr name="cornerSizeBottomRight" format="dimension|fraction"/>
+    <attr name="cornerSizeBottomLeft" format="dimension|fraction"/>
+    <attr name="cornerFamily" format="enum">
+      <enum name="rounded" value="0"/>
+      <enum name="cut" value="1"/>
+    </attr>
+    <attr name="cornerFamilyTopLeft" format="enum">
+      <enum name="rounded" value="0"/>
+      <enum name="cut" value="1"/>
+    </attr>
+    <attr name="cornerFamilyTopRight" format="enum">
+      <enum name="rounded" value="0"/>
+      <enum name="cut" value="1"/>
+    </attr>
+    <attr name="cornerFamilyBottomRight" format="enum">
+      <enum name="rounded" value="0"/>
+      <enum name="cut" value="1"/>
+    </attr>
+    <attr name="cornerFamilyBottomLeft" format="enum">
+      <enum name="rounded" value="0"/>
+      <enum name="cut" value="1"/>
+    </attr>
+  </declare-styleable>
+  <attr name="shapeCornerFamily" format="enum">
+    <enum name="rounded" value="0"/>
+    <enum name="cut" value="1"/>
+  </attr>
+  <declare-styleable name="StateListSizeChange">
+    <attr name="widthChange" format="dimension|fraction"/>
+  </declare-styleable>
+  <attr name="shapeCornerSizeExtraSmall" format="dimension|fraction"/>
+  <attr name="shapeCornerSizeSmall" format="dimension|fraction"/>
+  <attr name="shapeCornerSizeMedium" format="dimension|fraction"/>
+  <attr name="shapeCornerSizeLarge" format="dimension|fraction"/>
+  <attr name="shapeCornerSizeLargeIncreased" format="dimension|fraction"/>
+  <attr name="shapeCornerSizeExtraLarge" format="dimension|fraction"/>
+  <attr name="shapeCornerSizeExtraLargeIncreased" format="dimension|fraction"/>
+  <attr name="shapeCornerSizeExtraExtraLarge" format="dimension|fraction"/>
+  <attr name="shapeAppearanceCornerExtraSmall" format="reference"/>
+  <attr name="shapeAppearanceCornerSmall" format="reference"/>
+  <attr name="shapeAppearanceCornerMedium" format="reference"/>
+  <attr name="shapeAppearanceCornerLarge" format="reference"/>
+  <attr name="shapeAppearanceCornerLargeIncreased" format="reference"/>
+  <attr name="shapeAppearanceCornerExtraLarge" format="reference"/>
+  <attr name="shapeAppearanceCornerExtraLargeIncreased" format="reference"/>
+  <attr name="shapeAppearanceCornerExtraExtraLarge" format="reference"/>
+  <attr name="shapeAppearanceSmallComponent" format="reference"/>
+  <attr name="shapeAppearanceMediumComponent" format="reference"/>
+  <attr name="shapeAppearanceLargeComponent" format="reference"/>
+
+  <!-- ========================================== -->
+  <!-- Datepicker Attrs -->
+  <!-- ========================================== -->
+  <attr name="materialCalendarStyle" format="reference"/>
+  <attr name="materialCalendarFullscreenTheme" format="reference"/>
+  <attr name="materialCalendarTheme" format="reference"/>
+  <attr name="materialCalendarHeaderLayout" format="reference"/>
+  <attr name="materialCalendarHeaderDivider" format="reference"/>
+  <attr name="materialCalendarHeaderTitle" format="reference"/>
+  <attr name="materialCalendarHeaderSelection" format="reference"/>
+  <attr name="materialCalendarHeaderCancelButton" format="reference"/>
+  <attr name="materialCalendarHeaderConfirmButton" format="reference"/>
+  <attr name="materialCalendarHeaderToggleButton" format="reference"/>
+  <attr name="materialCalendarYearNavigationButton" format="reference"/>
+  <attr name="materialCalendarMonthNavigationButton" format="reference"/>
+  <attr name="materialCalendarDayOfWeekLabel" format="reference"/>
+  <attr name="materialCalendarDay" format="reference"/>
+  <attr name="materialCalendarMonth" format="reference"/>
+  <declare-styleable name="MaterialCalendar">
+    <attr name="android:windowFullscreen"/>
+    <attr name="backgroundTint"/>
+    <attr name="dayStyle" format="reference"/>
+    <attr name="dayInvalidStyle" format="reference"/>
+    <attr name="daySelectedStyle" format="reference"/>
+    <attr name="dayTodayStyle" format="reference"/>
+    <attr name="yearStyle" format="reference"/>
+    <attr name="yearSelectedStyle" format="reference"/>
+    <attr name="yearTodayStyle" format="reference"/>
+    <attr name="rangeFillColor" format="color"/>
+    <attr name="nestedScrollable" format="boolean"/>
+  </declare-styleable>
+  <declare-styleable name="MaterialCalendarItem">
+    <attr name="android:insetLeft"/>
+    <attr name="android:insetTop"/>
+    <attr name="android:insetRight"/>
+    <attr name="android:insetBottom"/>
+    <attr name="itemFillColor" format="color"/>
+    <attr name="itemTextColor"/>
+    <attr name="itemStrokeColor" format="color"/>
+    <attr name="itemStrokeWidth" format="dimension"/>
+    <attr name="itemShapeAppearance"/>
+    <attr name="itemShapeAppearanceOverlay"/>
+  </declare-styleable>
+
+  <!-- ========================================== -->
+  <!-- Button Attrs -->
+  <!-- ========================================== -->
+  <attr name="materialButtonStyle" format="reference" />
+  <attr name="materialButtonTonalStyle" format="reference" />
+  <attr name="materialButtonOutlinedStyle" format="reference" />
+  <attr name="materialButtonElevatedStyle" format="reference" />
+  <attr name="materialIconButtonStyle" format="reference" />
+  <attr name="materialIconButtonFilledStyle" format="reference" />
+  <attr name="materialIconButtonFilledTonalStyle" format="reference" />
+  <attr name="materialIconButtonOutlinedStyle" format="reference" />
+  <attr name="materialButtonGroupStyle" format="reference" />
+  <attr name="materialSplitButtonStyle" format="reference" />
+  <attr name="materialSplitButtonLeadingFilledStyle" format="reference" />
+  <attr name="materialSplitButtonLeadingFilledTonalStyle" format="reference" />
+  <attr name="materialSplitButtonIconFilledStyle" format="reference" />
+  <attr name="materialSplitButtonIconFilledTonalStyle" format="reference" />
+  <attr name="materialButtonToggleGroupStyle" format="reference" />
+  <attr name="materialButtonGroupOverflowButtonStyle" format="reference"/>
+  <attr name="materialButtonGroupPopupMenuStyle" format="reference"/>
+  <declare-styleable name="MaterialButton">
+    <attr name="android:checked" />
+    <attr name="android:checkable" />
+    <attr name="android:insetLeft" />
+    <attr name="android:insetRight" />
+    <attr name="android:insetTop" />
+    <attr name="android:insetBottom" />
+         will respect this background and not create its own MaterialShapeDrawable for the
+         background. This means that the insets, shape appearance, and stroke will be ignored.
+         If this attribute is not set or is @empty or @null, a MaterialShapeDrawable will be used
+         for the background based on the insets, shape appearance, and stroke. -->
+    <attr name="android:background" />
+    <attr name="backgroundTint" />
+    <attr name="backgroundTintMode" />
+    <attr name="elevation" />
+    <attr name="icon" format="reference" />
+    <attr name="iconSize" format="dimension" />
+    <attr name="iconPadding" format="dimension" />
+    <attr name="iconGravity">
+      <flag name="start" value="0x1" />
+           {@code iconPadding} from the text. -->
+      <flag name="textStart" value="0x2" />
+      <flag name="end" value="0x3" />
+           {@code iconPadding} from the text. -->
+      <flag name="textEnd" value="0x4" />
+      <flag name="top" value="0x10" />
+           {@code iconPadding} from the text. -->
+      <flag name="textTop" value="0x20" />
+    </attr>
+    <attr name="iconTint" format="color" />
+    <attr name="iconTintMode" />
+     package. -->
+    <attr name="shapeAppearance" />
+         attributes declared in the shapeAppearance. Attribute declaration is in the Shape package.
+    -->
+    <attr name="shapeAppearanceOverlay" />
+         is in resources package. -->
+    <attr name="strokeColor" />
+         resources package. -->
+    <attr name="strokeWidth" />
+        Specifies the radius for the corners of the button. Default is 0, for non-rounded corners.
+    -->
+    <attr name="cornerRadius" format="dimension" />
+         should be stateful. Attribute type definition is in resources package. -->
+    <attr name="rippleColor" />
+    <attr name="toggleCheckedStateOnClick" format="boolean" />
+    <attr name="opticalCenterEnabled" format="boolean" />
+  </declare-styleable>
+  <declare-styleable name="MaterialButtonGroup">
+    <attr name="android:enabled" />
+    <attr name="buttonSizeChange" format="reference" />
+         Can be a dp value as the absolute corner size; a fraction value as the relative
+         corner size; or a reference to a state list corner size. -->
+    <attr name="innerCornerSize" format="dimension|fraction|reference" />
+    <attr name="shapeAppearance" />
+    <attr name="shapeAppearanceOverlay" />
+         or negative. -->
+    <attr name="android:spacing" />
+    <attr name="overflowMode">
+           This can be used when the button group is wrapped in a ScrollView. -->
+      <enum name="none" value="0" />
+           and contained in a popup menu. -->
+      <enum name="menu" value="1" />
+      <enum name="wrap" value="2" />
+    </attr>
+    <attr name="overflowButtonIcon" />
+  </declare-styleable>
+  <declare-styleable name="MaterialButtonGroup_Layout">
+    <attr name="layout_overflowIcon" />
+    <attr name="layout_overflowText" />
+  </declare-styleable>
+  <declare-styleable name="MaterialButtonToggleGroup">
+         default, this is false and multiple buttons in this group are allowed to be checked at
+         once. -->
+    <attr name="singleSelection" />
+         It's false by default. -->
+    <attr name="selectionRequired" />
+    <attr name="checkedButton" format="reference" />
+    <attr name="android:enabled" />
+         Can be a dp value as the absolute corner size; a fraction value as the relative
+         corner size; or a reference to a state list corner size. -->
+    <attr name="innerCornerSize" />
+    <attr name="shapeAppearance" />
+    <attr name="shapeAppearanceOverlay" />
+         or negative. -->
+    <attr name="android:spacing" />
+  </declare-styleable>
+       resources as a means of indirection. They enable remapping to different values
+       for different size variants. -->
+  <attr name="containerPaddingStart" format="dimension" />
+  <attr name="containerPaddingEnd" format="dimension" />
+  <attr name="containerPaddingTop" format="dimension" />
+  <attr name="containerPaddingBottom" format="dimension" />
+  <attr name="containerInsetLeft" format="dimension" />
+  <attr name="containerInsetRight" format="dimension" />
+  <attr name="containerInsetTop" format="dimension" />
+  <attr name="containerInsetBottom" format="dimension" />
+  <attr name="containerIconSize" format="dimension" />
+  <attr name="containerIconPadding" format="dimension" />
+  <attr name="containerStrokeWidth" format="dimension" />
+  <attr name="labelTextAppearance" format="reference" />
+  <attr name="containerShapeDefault" format="reference" />
+  <attr name="containerShapePressed" format="reference" />
+  <attr name="containerShapeChecked" format="reference" />
+  <attr name="materialSizeOverlay" format="reference" />
+
+  <!-- ========================================== -->
+  <!-- Checkbox Attrs -->
+  <!-- ========================================== -->
+  <declare-styleable name="MaterialCheckBox">
+    <attr name="android:button"/>
+    <attr name="buttonCompat"/>
+      Material Theme colors. When set to false, Material Theme colors will
+      be ignored. This value should be set to false when using custom drawables
+      that should not be tinted. This value is ignored if a buttonTint is set. -->
+    <attr name="useMaterialThemeColors"/>
+         that should not be tinted. -->
+    <attr name="buttonTint"/>
+    <attr name="buttonIcon" format="reference"/>
+         using custom drawables that should not be tinted. -->
+    <attr name="buttonIconTint" format="reference|color"/>
+         to buttonIcon. The default mode is SRC_IN if not specified. -->
+    <attr name="buttonIconTintMode">
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
+      <enum name="src_over" value="3" />
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
+      <enum name="src_in" value="5" />
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
+      <enum name="src_atop" value="9" />
+           the tint. [Sa * Da, Sc * Dc] -->
+      <enum name="multiply" value="14" />
+      <enum name="screen" value="15" />
+           result to valid color values. Saturate(S + D) -->
+      <enum name="add" value="16" />
+    </attr>
+         centered when there is no text set for the checkbox. Default is true. -->
+    <attr name="centerIfNoTextEnabled" format="boolean"/>
+         tinted with the error color. -->
+    <attr name="errorShown" format="boolean"/>
+         the checkbox is in the error state. -->
+    <attr name="errorAccessibilityLabel" format="string"/>
+    <attr name="checkedState">
+      <enum name="unchecked" value="0"/>
+      <enum name="checked" value="1"/>
+      <enum name="indeterminate" value="2"/>
+    </attr>
+  </declare-styleable>
+  <declare-styleable name="MaterialCheckBoxStates">
+         checkbox is always one of checked/unchecked/indeterminate and can also
+         be on error or not. -->
+    <attr name="state_error" format="boolean"/>
+         checkbox can be checked, unchecked, or indeterminate. -->
+    <attr name="state_indeterminate" format="boolean"/>
+  </declare-styleable>
+
+  <!-- ========================================== -->
+  <!-- Radiobutton Attrs -->
+  <!-- ========================================== -->
+  <declare-styleable name="MaterialRadioButton">
+      Material Theme colors. When set to false, Material Theme colors will
+      be ignored. This value should be set to false when using custom drawables
+      that should not be tinted. This value is ignored if a buttonTint is set. -->
+    <attr name="useMaterialThemeColors"/>
+    <attr name="buttonTint"/>
+  </declare-styleable>
+
+  <!-- ========================================== -->
+  <!-- Textview Attrs -->
+  <!-- ========================================== -->
+        Setting this attribute value to false in the theme, will cause the MaterialTextView to ignore
+        line height specified in all text appearance styles. The value is true by default.
+  -->
+  <attr name="textAppearanceLineHeightEnabled" format="boolean" />
+  <declare-styleable name="MaterialTextView" parent="AppCompatTextView">
+    <attr name="android:textAppearance"/>
+    <attr name="android:lineHeight"/>
+    <attr name="lineHeight"/>
+  </declare-styleable>
+
+  <!-- ========================================== -->
+  <!-- Textfield Attrs -->
+  <!-- ========================================== -->
+  <attr name="textInputStyle" format="reference"/>
+  <attr name="textInputOutlinedStyle" format="reference"/>
+  <attr name="textInputFilledStyle" format="reference"/>
+  <attr name="textInputOutlinedDenseStyle" format="reference"/>
+  <attr name="textInputFilledDenseStyle" format="reference"/>
+  <attr name="textInputOutlinedExposedDropdownMenuStyle" format="reference"/>
+  <attr name="textInputFilledExposedDropdownMenuStyle" format="reference"/>
+  <declare-styleable name="TextInputLayout">
+    <attr name="android:enabled"/>
+    <attr name="android:hint"/>
+         as for the resting and disabled states). -->
+    <attr name="android:textColorHint"/>
+         set to wrap_content. -->
+    <attr name="android:minEms"/>
+         to wrap_content. -->
+    <attr name="android:maxEms"/>
+         set to wrap_content. -->
+    <attr name="android:minWidth"/>
+         to wrap_content. -->
+    <attr name="android:maxWidth"/>
+    <attr name="hintEnabled" format="boolean"/>
+    <attr name="hintAnimationEnabled" format="boolean"/>
+    <attr name="hintTextAppearance" format="reference"/>
+         If set, this takes precedence over hintTextAppearance. -->
+    <attr name="hintTextColor" format="color"/>
+         unpopulated and not focused. -->
+    <attr name="expandedHintEnabled" format="boolean"/>
+    <attr name="helperText" format="string"/>
+    <attr name="helperTextEnabled" format="boolean"/>
+    <attr name="helperTextTextAppearance" format="reference"/>
+         If set, this takes precedence over helperTextTextAppearance. -->
+    <attr name="helperTextTextColor" format="color"/>
+    <attr name="errorEnabled" format="boolean"/>
+    <attr name="errorTextAppearance" format="reference"/>
+         If set, this takes precedence over errorTextAppearance. -->
+    <attr name="errorTextColor" format="color"/>
+         Should be set when the error message has special characters that a
+         screen reader is not able to announce properly. -->
+    <attr name="errorContentDescription" format="string"/>
+    <attr name="errorAccessibilityLiveRegion" format="integer"/>
+    <attr name="errorIconDrawable" format="reference"/>
+    <attr name="errorIconTint" format="reference"/>
+    <attr name="errorIconTintMode">
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
+      <enum name="src_over" value="3"/>
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
+      <enum name="src_in" value="5"/>
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
+      <enum name="src_atop" value="9"/>
+           the tint. [Sa * Da, Sc * Dc] -->
+      <enum name="multiply" value="14"/>
+      <enum name="screen" value="15"/>
+    </attr>
+         ?attr/colorControlActivated set for the edit text.
+         Note: Only has effect on API levels 28+. -->
+    <attr name="cursorColor" format="color"/>
+         If null, the cursor color won't change on error.
+         Note: Only has effect on API levels 28+. -->
+    <attr name="cursorErrorColor" format="color"/>
+    <attr name="counterEnabled" format="boolean"/>
+    <attr name="counterMaxLength" format="integer"/>
+    <attr name="counterTextAppearance" format="reference"/>
+         If set, this takes precedence over counterTextAppearance. -->
+    <attr name="counterTextColor" format="reference"/>
+    <attr name="counterOverflowTextAppearance" format="reference"/>
+         If set, this takes precedence over counterOverflowTextAppearance. -->
+    <attr name="counterOverflowTextColor" format="reference"/>
+    <attr name="placeholderText" format="string"/>
+    <attr name="placeholderTextAppearance" format="reference"/>
+         If set, this takes precedence over placeholderTextAppearance. -->
+    <attr name="placeholderTextColor" format="color"/>
+    <attr name="prefixText" format="string"/>
+    <attr name="prefixTextAppearance" format="reference"/>
+         If set, this takes precedence over prefixTextAppearance. -->
+    <attr name="prefixTextColor" format="color"/>
+    <attr name="suffixText" format="string"/>
+    <attr name="suffixTextAppearance" format="reference"/>
+         If set, this takes precedence over suffixTextAppearance. -->
+    <attr name="suffixTextColor" format="color"/>
+    <attr name="startIconDrawable" format="reference"/>
+    <attr name="startIconContentDescription" format="string"/>
+    <attr name="startIconCheckable" format="boolean"/>
+    <attr name="startIconTint" format="color"/>
+    <attr name="startIconTintMode">
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
+      <enum name="src_over" value="3"/>
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
+      <enum name="src_in" value="5"/>
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
+      <enum name="src_atop" value="9"/>
+           the tint. [Sa * Da, Sc * Dc] -->
+      <enum name="multiply" value="14"/>
+      <enum name="screen" value="15"/>
+    </attr>
+    <attr name="startIconMinSize" format="dimension"/>
+    <attr name="startIconScaleType">
+      <enum name="fitXY" value="0" />
+      <enum name="fitStart" value="1" />
+      <enum name="fitCenter" value="2" />
+      <enum name="fitEnd" value="3" />
+      <enum name="center" value="4" />
+           (width and height) of the image will be equal to or larger than the corresponding
+           dimension of the view (minus padding). The image is then centered in the view. -->
+      <enum name="centerCrop" value="5" />
+           dimensions (width and height) of the image will be equal to or less than the
+           corresponding dimension of the view (minus padding). The image is then centered in
+           the view. -->
+      <enum name="centerInside" value="6" />
+    </attr>
+         below, or no end icon. -->
+    <attr name="endIconMode">
+      <enum name="custom" value="-1"/>
+      <enum name="none" value="0"/>
+      <enum name="password_toggle" value="1"/>
+      <enum name="clear_text" value="2"/>
+      <enum name="dropdown_menu" value="3"/>
+    </attr>
+    <attr name="endIconDrawable" format="reference"/>
+    <attr name="endIconContentDescription" format="string"/>
+    <attr name="endIconCheckable" format="boolean"/>
+    <attr name="endIconTint" format="color"/>
+    <attr name="endIconTintMode">
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
+      <enum name="src_over" value="3"/>
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
+      <enum name="src_in" value="5"/>
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
+      <enum name="src_atop" value="9"/>
+           the tint. [Sa * Da, Sc * Dc] -->
+      <enum name="multiply" value="14"/>
+      <enum name="screen" value="15"/>
+    </attr>
+    <attr name="endIconMinSize" format="dimension"/>
+    <attr name="endIconScaleType">
+      <enum name="fitXY" value="0" />
+      <enum name="fitStart" value="1" />
+      <enum name="fitCenter" value="2" />
+      <enum name="fitEnd" value="3" />
+      <enum name="center" value="4" />
+           (width and height) of the image will be equal to or larger than the corresponding
+           dimension of the view (minus padding). The image is then centered in the view. -->
+      <enum name="centerCrop" value="5" />
+           dimensions (width and height) of the image will be equal to or less than the
+           corresponding dimension of the view (minus padding). The image is then centered in
+           the view. -->
+      <enum name="centerInside" value="6" />
+    </attr>
+    <attr name="boxBackgroundMode">
+      <enum name="none" value="0"/>
+      <enum name="filled" value="1"/>
+      <enum name="outline" value="2"/>
+    </attr>
+    <attr name="boxCollapsedPaddingTop" format="dimension"/>
+    <attr name="boxCornerRadiusTopStart" format="dimension"/>
+    <attr name="boxCornerRadiusTopEnd" format="dimension"/>
+    <attr name="boxCornerRadiusBottomStart" format="dimension"/>
+    <attr name="boxCornerRadiusBottomEnd" format="dimension"/>
+    <attr name="boxStrokeColor" format="color"/>
+         is being displayed. If not set, it defaults to errorTextColor if on
+         error state, or to counterOverflowTextColor if on overflow state. -->
+    <attr name="boxStrokeErrorColor" format="color"/>
+         If a non-stateful color resource is specified, default colors will be used for the hover
+         and disabled states. -->
+    <attr name="boxBackgroundColor" format="color"/>
+         in filled mode. -->
+    <attr name="boxStrokeWidth" format="dimension"/>
+         underline stroke in filled mode.. -->
+    <attr name="boxStrokeWidthFocused" format="dimension"/>
+        package. -->
+    <attr name="shapeAppearance"/>
+         attributes declared in the shapeAppearance. Attribute declaration is in the Shape
+         package. -->
+    <attr name="shapeAppearanceOverlay"/>
+         Deprecated. The view's end icon should be specified via endIconMode instead. -->
+    <attr name="passwordToggleEnabled" format="boolean"/>
+         Deprecated. Use endIconDrawable instead. -->
+    <attr name="passwordToggleDrawable" format="reference"/>
+         Deprecated. Use endIconContentDescription instead. -->
+    <attr name="passwordToggleContentDescription" format="string"/>
+         Deprecated. Use endIconTint instead. -->
+    <attr name="passwordToggleTint" format="color"/>
+         Deprecated. Use endIconTintMode instead. -->
+    <attr name="passwordToggleTintMode">
+           [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
+      <enum name="src_over" value="3"/>
+           color channels are thrown out. [Sa * Da, Sc * Da] -->
+      <enum name="src_in" value="5"/>
+           channel masking the result. [Da, Sc * Da + (1 - Sa) * Dc] -->
+      <enum name="src_atop" value="9"/>
+           the tint. [Sa * Da, Sc * Dc] -->
+      <enum name="multiply" value="14"/>
+      <enum name="screen" value="15"/>
+    </attr>
+    <attr name="hintMaxLines" format="integer"/>
+  </declare-styleable>
+  <declare-styleable name="TextInputEditText">
+         rectangle instead of its own. -->
+    <attr name="textInputLayoutFocusedRectEnabled" format="boolean"/>
+  </declare-styleable>
+  <declare-styleable name="MaterialAutoCompleteTextView" parent="AppCompatAutoCompleteTextView">
+    <attr name="android:inputType"/>
+    <attr name="android:popupElevation"/>
+    <attr name="simpleItemLayout" format="reference"/>
+    <attr name="simpleItems" format="reference"/>
+    <attr name="simpleItemSelectedColor" format="color"/>
+    <attr name="simpleItemSelectedRippleColor" format="color"/>
+    <attr name="dropDownBackgroundTint" format="color"/>
+  </declare-styleable>
+
+  <!-- ========================================== -->
+  <!-- Dialog Attrs -->
+  <!-- ========================================== -->
+       For default configurations of all attributes, set materialAlertDialogTheme
+       in your App Theme to ThemeOverlay.MaterialComponents.MaterialAlertDialog or
+       ThemeOverlay.MaterialComponents.MaterialAlertDialog.Centered. -->
+  <declare-styleable name="MaterialAlertDialogTheme">
+    <attr name="materialAlertDialogTheme" format="reference"/>
+    <attr name="materialAlertDialogTitlePanelStyle" format="reference"/>
+    <attr name="materialAlertDialogTitleIconStyle" format="reference"/>
+    <attr name="materialAlertDialogTitleTextStyle" format="reference"/>
+    <attr name="materialAlertDialogBodyTextStyle" format="reference"/>
+    <attr name="materialAlertDialogButtonSpacerVisibility" format="integer"/>
+  </declare-styleable>
+  <declare-styleable name="MaterialAlertDialog">
+    <attr name="backgroundTint"/>
+    <attr name="backgroundInsetStart" format="dimension"/>
+    <attr name="backgroundInsetTop" format="dimension"/>
+    <attr name="backgroundInsetEnd" format="dimension"/>
+    <attr name="backgroundInsetBottom" format="dimension"/>
+  </declare-styleable>
+
+  <!-- ========================================== -->
+  <!-- Internal Attrs -->
+  <!-- ========================================== -->
+  <declare-styleable name="ThemeEnforcement">
+         Theme.MaterialComponents, and that the component should check via ThemeEnforcement that the
+         client's app theme inherits from Theme.MaterialComponents.
+         Not all usages of new attributes are problematic in the context of a legacy app theme. You
+         should only use this flag if a particular usage is known to cause a visual glitch or crash.
+         For example, tinting a vector drawable with a non-existent theme attribute is known to
+         crash on pre-21 devices. -->
+    <attr name="enforceMaterialTheme" format="boolean"/>
+         specified and evaluates to a valid text appearance. -->
+    <attr name="enforceTextAppearance" format="boolean"/>
+    <attr name="android:textAppearance"/>
+  </declare-styleable>
+  <declare-styleable name="ForegroundLinearLayout">
+    <attr name="android:foreground"/>
+    <attr name="android:foregroundGravity"/>
+    <attr name="foregroundInsidePadding" format="boolean"/>
+  </declare-styleable>
+  <declare-styleable name="ScrimInsetsFrameLayout">
+    <attr name="insetForeground" format="color|reference"/>
+  </declare-styleable>
+  <declare-styleable name="FlowLayout">
+    <attr name="horizontalItemSpacing" format="dimension"/>
+    <attr name="lineSpacing" format="dimension"/>
+  </declare-styleable>
+  <declare-styleable name="Insets">
+         ideally we'll be able to use https://github.com/chrisbanes/insetter once it's ready. -->
+    <attr name="paddingBottomSystemWindowInsets" format="boolean"/>
+    <attr name="paddingLeftSystemWindowInsets" format="boolean"/>
+    <attr name="paddingRightSystemWindowInsets" format="boolean"/>
+    <attr name="paddingStartSystemWindowInsets" format="boolean"/>
+    <attr name="paddingTopSystemWindowInsets" format="boolean"/>
+    <attr name="marginLeftSystemWindowInsets" format="boolean"/>
+    <attr name="marginRightSystemWindowInsets" format="boolean"/>
+    <attr name="marginTopSystemWindowInsets" format="boolean"/>
+    <attr name="marginBottomSystemWindowInsets" format="boolean"/>
+  </declare-styleable>
+
 </resources>
