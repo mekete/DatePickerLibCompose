@@ -28,6 +28,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    lint {
+        // Allow access to RestrictTo APIs (like TintAwareDrawable)
+        disable += "RestrictedApi"
+    }
 }
 
 dependencies {
