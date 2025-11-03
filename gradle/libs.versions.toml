@@ -18,6 +18,7 @@ customview = "1.2.0-alpha02"
 lifecycle-runtime = "2.8.7"
 androidx-test-core = "1.6.1"
 androidx-test-runner = "1.6.2"
+errorprone = "2.23.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -38,6 +39,7 @@ androidx-customview = { group = "androidx.customview", name = "customview", vers
 androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime", version.ref = "lifecycle-runtime" }
 androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx-test-core" }
 androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-test-runner" }
+errorprone-annotations = { group = "com.google.errorprone", name = "error_prone_annotations", version.ref = "errorprone" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -45,6 +45,9 @@ dependencies {
     api(libs.androidx.customview)
     api(libs.androidx.lifecycle.runtime)
 
+    // ErrorProne annotations (required by Material Components)
+    implementation(libs.errorprone.annotations)
+
     // Test dependencies
     testImplementation(libs.junit)
     testImplementation(libs.androidx.test.core)
