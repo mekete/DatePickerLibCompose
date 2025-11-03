@@ -590,4 +590,145 @@
     <attr name="marginBottomSystemWindowInsets" format="boolean"/>
   </declare-styleable>
 
+
+  <!-- ========================================== -->
+  <!-- Motion System Attributes -->
+  <!-- ========================================== -->
+  <declare-styleable name="MaterialSpring">
+    <!-- Float used as the stiffness of a spring animation. The value must
+         be greater than 0.-->
+    <attr name="stiffness" format="float"/>
+    <!-- Float used as the damping ratio of a spring animation. The value
+         must be greater than or equal to 0 and is typically
+         between 0 and 1, inclusive. -->
+    <attr name="damping" format="float"/>
+  </declare-styleable>
+  <!-- Spring for small components animations such as switches and buttons. -->
+  <attr name="motionSpringFastSpatial" format="reference" />
+  <!-- Spring for color or opacity change on small components such as a
+       switch's thumb changing color. -->
+  <attr name="motionSpringFastEffects" format="reference" />
+  <!-- Spring for animations that partially cover the screen such as a bottom
+       sheet sliding or a navigation rail expanding. -->
+  <attr name="motionSpringDefaultSpatial" format="reference" />
+  <!-- Spring for color or opacity changes of animations that partially cover
+       the screen such as the opacity of the navigation rail content as the
+       rail expands. -->
+  <attr name="motionSpringDefaultEffects" format="reference" />
+  <!-- Spring for full screen movements. -->
+  <attr name="motionSpringSlowSpatial" format="reference" />
+  <!-- Spring for full screen color or opacity changes such as content
+       refreshes. -->
+  <attr name="motionSpringSlowEffects" format="reference" />
+  <!-- Standard easing begins and ends at rest. It speeds up quickly and slows
+       down gradually. This easing is used on elements that remain persistent
+       during a transition. -->
+  <attr name="motionEasingStandardInterpolator" format="reference" />
+  <!-- Standard decelerate easing begins at peak velocity and ends at rest.
+       This easing is used when a new element enters the screen. -->
+  <attr name="motionEasingStandardDecelerateInterpolator" format="reference" />
+  <!-- Standard accelerate starts at rest and ends at peak velocity. This
+       easing is used when an element permanently leaves the screen. -->
+  <attr name="motionEasingStandardAccelerateInterpolator" format="reference" />
+  <!-- Emphasized easing begins and ends at rest. It speeds up quickly and
+       slows down very gradually. This easing is used on elements that remain
+       persistent during a transition. -->
+  <attr name="motionEasingEmphasizedInterpolator" format="reference" />
+  <!-- Emphasized decelerate easing begins at peak velocity and ends at rest.
+       This easing is used when a new element enters the screen. -->
+  <attr name="motionEasingEmphasizedDecelerateInterpolator" format="reference" />
+  <!-- Emphasized accelerate starts at rest and ends at peak velocity. This
+       easing is used when an element permanently leaves the screen. -->
+  <attr name="motionEasingEmphasizedAccelerateInterpolator" format="reference" />
+  <!-- Linear is a constant rate of change for simple animations, such as fades. -->
+  <attr name="motionEasingLinearInterpolator" format="reference" />
+  <!-- Short durations are used for animations with small transition areas,
+       such as selection controls. -->
+  <attr name="motionDurationShort1" format="integer"/>
+  <attr name="motionDurationShort2" format="integer"/>
+  <attr name="motionDurationShort3" format="integer"/>
+  <attr name="motionDurationShort4" format="integer"/>
+  <!--  Medium durations are used for animations that cover medium transition
+        areas such as an expanding FAB.-->
+  <attr name="motionDurationMedium1" format="integer"/>
+  <attr name="motionDurationMedium2" format="integer"/>
+  <attr name="motionDurationMedium3" format="integer"/>
+  <attr name="motionDurationMedium4" format="integer"/>
+  <!--  Long durations are used for animations that traverse a large portion
+        of the screen. -->
+  <attr name="motionDurationLong1" format="integer"/>
+  <attr name="motionDurationLong2" format="integer"/>
+  <attr name="motionDurationLong3" format="integer"/>
+  <attr name="motionDurationLong4" format="integer"/>
+  <!--  Extra long durations are usually used for ambient transitions that
+        don't involve user input. For example, an auto-advancing carousel. -->
+  <attr name="motionDurationExtraLong1" format="integer"/>
+  <attr name="motionDurationExtraLong2" format="integer"/>
+  <attr name="motionDurationExtraLong3" format="integer"/>
+  <attr name="motionDurationExtraLong4" format="integer"/>
+
+  <!-- ========================================== -->
+  <!-- Common Resource Attributes -->
+  <!-- ========================================== -->
+  <!-- Type definitions for common attributes used across component packages. -->
+  <attr name="checkedIcon" format="reference" />
+  <attr name="checkedIconTint" format="color" />
+  <attr name="minTouchTargetSize" format="dimension" />
+  <attr name="selectionRequired" format="boolean" />
+  <attr name="singleSelection" format="boolean" />
+  <attr name="strokeColor" format="color"/>
+  <attr name="strokeWidth" format="dimension" />
+  <attr name="ensureMinTouchTargetSize" format="boolean" />
+  <attr name="trackColor" format="color" />
+  <attr name="navigationIconTint" format="color"/>
+  <attr name="expanded" format="boolean" />
+  <!-- Navigation and Pickers -->
+  <attr name="headerLayout" format="reference"/>
+  <attr name="itemTextColor" format="color" />
+  <attr name="itemShapeAppearance" format="reference" />
+  <attr name="itemShapeAppearanceOverlay" format="reference" />
+  <!-- Sheets -->
+  <attr name="behavior_draggable" format="boolean" />
+  <!-- Slider and ProgressIndicator -->
+  <attr name="trackStopIndicatorSize" format="dimension" />
+  <!-- ProgressIndicator and LoadingIndicator -->
+  <attr name="indicatorColor" format="color|reference" />
+  <attr name="indicatorSize" format="dimension" />
+  <!--
+    The time, in milliseconds, that the progress/loading indicator will wait
+    to show once show() is called. If set to zero or negative values (-1 as
+    default), the show action will start immediately.
+  -->
+  <attr name="showDelay" format="integer" />
+  <!--
+    The minimum time, in milliseconds, that the requested hide action will
+    wait to start once show action is started. If set to zero or negative
+    values (-1 as default), the requested hide action will start immediately.
+    This value is capped to a limit defined in ProgressIndicator or
+    LoadingIndicator class.
+  -->
+  <attr name="minHideDelay" format="integer" />
+  <!-- Button Group and Overflow Linear Layout -->
+  <!-- The icon of the overflow menu item. -->
+  <attr name="layout_overflowIcon" type="attr"/>
+  <!-- The text of the overflow menu item. -->
+  <attr name="layout_overflowText" type="attr"/>
+  <!-- The icon of the overflow button. -->
+  <attr name="overflowButtonIcon" type="attr"/>
+  <declare-styleable name="MaterialTextAppearance" parent="TextAppearance">
+    <attr name="android:lineHeight"/>
+    <attr name="lineHeight" format="dimension"/>
+    <attr name="android:letterSpacing"/>
+    <attr name="android:fontVariationSettings"/>
+    <attr name="fontVariationSettings" format="string"/>
+  </declare-styleable>
+</resources>
+
+  <!-- Additional theme attributes -->
+  <attr name="materialThemeOverlay" format="reference"/>
+  <attr name="transitionShapeAppearance" format="reference"/>
+  <attr name="textAppearanceLineHeightEnabled" format="boolean"/>
+  <attr name="enforceMaterialTheme" format="boolean"/>
+  <attr name="enforceTextAppearance" format="boolean"/>
+
 </resources>

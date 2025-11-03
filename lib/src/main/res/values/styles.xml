@@ -1,12 +1,1777 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-  <!-- Base Material theme with motion attributes -->
-  <style name="Base.Theme.Material3" parent="android:Theme.Material.Light">
-    <!-- Motion durations -->
-    <item name="motionDurationLong2">@integer/m3_sys_motion_duration_long2</item>
-    <item name="motionDurationMedium4">@integer/m3_sys_motion_duration_medium4</item>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Motion easing -->
-    <item name="motionEasingEmphasizedInterpolator">@anim/m3_sys_motion_easing_emphasized</item>
+  <!-- ========================================== -->
+  <!-- Textfield Styles -->
+  <!-- ========================================== -->
+  <style name="Widget.Design.TextInputLayout" parent="android:Widget">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Design.TextInputEditText</item>
+    <item name="enforceMaterialTheme">false</item>
+    <item name="enforceTextAppearance">false</item>
+    <item name="boxBackgroundMode">none</item>
+    <item name="boxStrokeColor">@color/design_box_stroke_color</item>
+    <item name="errorIconDrawable">@null</item>
+    <item name="startIconTint">@color/design_icon_tint</item>
+    <item name="endIconTint">@color/design_icon_tint</item>
+    <item name="passwordToggleDrawable">@drawable/design_password_eye</item>
+    <item name="passwordToggleTint">@color/design_icon_tint</item>
+    <item name="passwordToggleContentDescription">@string/password_toggle_content_description</item>
+    <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
+    <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow</item>
+    <item name="errorTextAppearance">@style/TextAppearance.Design.Error</item>
+    <item name="helperTextTextAppearance">@style/TextAppearance.Design.HelperText</item>
+    <item name="hintTextAppearance">@style/TextAppearance.Design.Hint</item>
+    <item name="placeholderTextAppearance">@style/TextAppearance.Design.Placeholder</item>
+    <item name="prefixTextAppearance">@style/TextAppearance.Design.Prefix</item>
+    <item name="suffixTextAppearance">@style/TextAppearance.Design.Suffix</item>
+    <item name="counterTextColor">@null</item>
+    <item name="counterOverflowTextColor">@null</item>
+    <item name="errorTextColor">@null</item>
+    <item name="helperTextTextColor">@null</item>
+    <item name="hintTextColor">@null</item>
+    <item name="placeholderTextColor">@null</item>
+    <item name="prefixTextColor">@null</item>
+    <item name="suffixTextColor">@null</item>
+    <item name="shapeAppearance">@null</item>
+    <item name="shapeAppearanceOverlay">@null</item>
   </style>
+  <!-- Base style for TextInputLayout. You should use one of the sub-styles instead. -->
+  <style name="Base.Widget.MaterialComponents.TextInputLayout" parent="Widget.Design.TextInputLayout">
+    <item name="enforceMaterialTheme">true</item>
+    <item name="enforceTextAppearance">true</item>
+    <item name="android:minWidth">@dimen/material_textinput_min_width</item>
+    <item name="android:maxWidth">@dimen/material_textinput_max_width</item>
+    <item name="boxBackgroundMode">outline</item>
+    <item name="boxBackgroundColor">@null</item>
+    <item name="errorIconDrawable">@drawable/mtrl_ic_error</item>
+    <item name="errorIconTint">@color/mtrl_error</item>
+    <item name="endIconTint">@color/mtrl_outlined_icon_tint</item>
+    <item name="startIconTint">@color/mtrl_outlined_icon_tint</item>
+    <item name="boxCollapsedPaddingTop">0dp</item>
+    <item name="boxStrokeColor">@color/mtrl_outlined_stroke_color</item>
+    <item name="boxStrokeErrorColor">@color/mtrl_error</item>
+    <item name="boxStrokeWidth">@dimen/mtrl_textinput_box_stroke_width_default</item>
+    <item name="boxStrokeWidthFocused">@dimen/mtrl_textinput_box_stroke_width_focused</item>
+    <!-- By default the cursor color is controlled via ?attr/colorControlActivated. -->
+    <item name="cursorColor">@null</item>
+    <item name="cursorErrorColor">@color/mtrl_error</item>
+    <item name="counterTextAppearance">?attr/textAppearanceCaption</item>
+    <item name="counterOverflowTextAppearance">?attr/textAppearanceCaption</item>
+    <item name="errorTextAppearance">?attr/textAppearanceCaption</item>
+    <item name="helperTextTextAppearance">?attr/textAppearanceCaption</item>
+    <item name="hintTextAppearance">?attr/textAppearanceCaption</item>
+    <item name="placeholderTextAppearance">?attr/textAppearanceSubtitle1</item>
+    <item name="prefixTextAppearance">?attr/textAppearanceSubtitle1</item>
+    <item name="suffixTextAppearance">?attr/textAppearanceSubtitle1</item>
+    <item name="counterTextColor">@color/mtrl_indicator_text_color</item>
+    <item name="counterOverflowTextColor">@color/mtrl_error</item>
+    <item name="errorTextColor">@color/mtrl_error</item>
+    <item name="helperTextTextColor">@color/mtrl_indicator_text_color</item>
+    <!-- The color of the label when it is collapsed and the text field is active -->
+    <item name="hintTextColor">?attr/colorPrimary</item>
+    <item name="placeholderTextColor">@color/mtrl_indicator_text_color</item>
+    <item name="prefixTextColor">@color/mtrl_indicator_text_color</item>
+    <item name="suffixTextColor">@color/mtrl_indicator_text_color</item>
+    <!-- The color of the label in all other text field states (such as resting and disabled) -->
+    <item name="android:textColorHint">@color/mtrl_indicator_text_color</item>
+    <item name="shapeAppearance">?attr/shapeAppearanceSmallComponent</item>
+    <item name="shapeAppearanceOverlay">@null</item>
+  </style>
+  <style name="Widget.MaterialComponents.TextInputLayout.FilledBox" parent="Base.Widget.MaterialComponents.TextInputLayout">
+    <item name="materialThemeOverlay">
+      @style/ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox
+    </item>
+    <item name="boxBackgroundMode">filled</item>
+    <item name="boxBackgroundColor">@color/mtrl_filled_background_color</item>
+    <item name="endIconTint">@color/mtrl_filled_icon_tint</item>
+    <item name="startIconTint">@color/mtrl_filled_icon_tint</item>
+    <item name="boxCollapsedPaddingTop">10dp</item>
+    <item name="boxStrokeColor">@color/mtrl_filled_stroke_color</item>
+    <item name="shapeAppearanceOverlay">
+      @style/ShapeAppearanceOverlay.MaterialComponents.TextInputLayout.FilledBox
+    </item>
+  </style>
+  <style name="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+    <item name="materialThemeOverlay">
+      @style/ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox.Dense
+    </item>
+  </style>
+  <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox" parent="Base.Widget.MaterialComponents.TextInputLayout">
+    <item name="materialThemeOverlay">
+      @style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox
+    </item>
+    <item name="boxCollapsedPaddingTop">0dp</item>
+  </style>
+  <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+    <item name="materialThemeOverlay">
+      @style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox.Dense
+    </item>
+  </style>
+  <!-- Styles to be used for the exposed dropdown menu. -->
+  <style name="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+    <item name="materialThemeOverlay">
+      @style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.FilledBox
+    </item>
+    <item name="endIconMode">dropdown_menu</item>
+  </style>
+  <style name="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu">
+    <item name="materialThemeOverlay">
+      @style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.FilledBox.Dense
+    </item>
+    <item name="endIconMode">dropdown_menu</item>
+  </style>
+  <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+    <item name="materialThemeOverlay">
+      @style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox
+    </item>
+    <item name="endIconMode">dropdown_menu</item>
+  </style>
+  <style name="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+    <item name="materialThemeOverlay">
+      @style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox.Dense
+    </item>
+    <item name="endIconMode">dropdown_menu</item>
+  </style>
+  <style name="Widget.Design.TextInputEditText" parent="Widget.AppCompat.EditText">
+    <item name="enforceMaterialTheme">false</item>
+    <item name="enforceTextAppearance">false</item>
+  </style>
+  <!-- Base style for TextInputEditText. You should use one of the sub-styles instead. -->
+  <style name="Base.Widget.MaterialComponents.TextInputEditText" parent="Widget.Design.TextInputEditText">
+    <item name="enforceMaterialTheme">true</item>
+    <item name="enforceTextAppearance">true</item>
+    <item name="android:background">@null</item>
+    <item name="android:paddingStart">16dp</item>
+    <item name="android:paddingEnd">16dp</item>
+    <item name="android:paddingLeft">16dp</item>
+    <item name="android:paddingRight">16dp</item>
+    <!-- Edit text's default text size is 16sp which currently equals to 22dp total line height, so
+         we need a total of 34dp to get the 56dp height of the default layout. -->
+    <item name="android:paddingTop">17dp</item>
+    <item name="android:paddingBottom">17dp</item>
+    <item name="android:textAppearance">?attr/textAppearanceSubtitle1</item>
+    <item name="textInputLayoutFocusedRectEnabled">true</item>
+  </style>
+  <style name="Widget.MaterialComponents.TextInputEditText.FilledBox" parent="Base.Widget.MaterialComponents.TextInputEditText">
+    <!-- Padding values that total 34dp to visually match the spec. -->
+    <item name="android:paddingTop">24dp</item>
+    <item name="android:paddingBottom">10dp</item>
+  </style>
+  <style name="Widget.MaterialComponents.TextInputEditText.FilledBox.Dense">
+    <!-- Dense layout height is 54dp so we need a total of 32dp of top and bottom padding. -->
+    <item name="android:paddingTop">24dp</item>
+    <item name="android:paddingBottom">8dp</item>
+  </style>
+  <style name="Widget.MaterialComponents.TextInputEditText.OutlinedBox" parent="Base.Widget.MaterialComponents.TextInputEditText"/>
+  <style name="Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense">
+    <item name="android:paddingTop">13dp</item>
+    <item name="android:paddingBottom">13dp</item>
+  </style>
+  <!-- Base styles for AutoCompleteTextView. You should use one of the sub-styles instead. -->
+  <style name="Base.V14.Widget.MaterialComponents.AutoCompleteTextView" parent="Widget.AppCompat.AutoCompleteTextView">
+    <item name="enforceMaterialTheme">true</item>
+    <item name="enforceTextAppearance">true</item>
+    <item name="android:background">@null</item>
+    <item name="android:paddingStart">16dp</item>
+    <item name="android:paddingEnd">16dp</item>
+    <item name="android:paddingLeft">16dp</item>
+    <item name="android:paddingRight">16dp</item>
+    <!-- Edit text's default text size is 16sp which currently equals to 22dp total line height, so
+     we need a total of 34dp to get the 56dp height of the default layout. -->
+    <item name="android:paddingTop">17dp</item>
+    <item name="android:paddingBottom">17dp</item>
+    <item name="android:textAppearance">?attr/textAppearanceSubtitle1</item>
+    <item name="android:dropDownVerticalOffset">@dimen/mtrl_exposed_dropdown_menu_popup_vertical_offset</item>
+    <item name="android:popupElevation">@dimen/mtrl_exposed_dropdown_menu_popup_elevation</item>
+  </style>
+  <style name="Base.Widget.MaterialComponents.AutoCompleteTextView" parent="Base.V14.Widget.MaterialComponents.AutoCompleteTextView">
+    <item name="android:popupBackground">@null</item>
+  </style>
+  <!-- Styles for the AutocompleteTextView to be used if an ExposedDropdownMenu style is being used. -->
+  <style name="Widget.MaterialComponents.AutoCompleteTextView.FilledBox" parent="Base.Widget.MaterialComponents.AutoCompleteTextView">
+    <!-- Padding values that total 34dp to visually match the spec. -->
+    <item name="android:paddingTop">24dp</item>
+    <item name="android:paddingBottom">10dp</item>
+  </style>
+  <style name="Widget.MaterialComponents.AutoCompleteTextView.FilledBox.Dense">
+    <!-- Dense layout height is 54dp so we need a total of 32dp of top and bottom padding. -->
+    <item name="android:paddingTop">24dp</item>
+    <item name="android:paddingBottom">8dp</item>
+  </style>
+  <style name="Widget.MaterialComponents.AutoCompleteTextView.OutlinedBox" parent="Base.Widget.MaterialComponents.AutoCompleteTextView"/>
+  <style name="Widget.MaterialComponents.AutoCompleteTextView.OutlinedBox.Dense">
+    <item name="android:paddingTop">13dp</item>
+    <item name="android:paddingBottom">13dp</item>
+  </style>
+  <!-- Set of ThemeOverlays to be used internally in the TextInputLayout styles to automatically
+       apply the correct TextInputEditText style to the TextInputEditText. -->
+  <style name="ThemeOverlay.Design.TextInputEditText" parent=""/>
+  <style name="ThemeOverlay.MaterialComponents.TextInputEditText" parent="ThemeOverlay.Design.TextInputEditText">
+    <item name="colorControlActivated">?attr/colorPrimary</item>
+    <item name="android:editTextBackground">@null</item>
+    <item name="editTextBackground">@null</item>
+  </style>
+  <style name="ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox">
+    <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.FilledBox</item>
+  </style>
+  <style name="ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox.Dense">
+    <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.FilledBox.Dense
+    </item>
+  </style>
+  <style name="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox">
+    <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox</item>
+  </style>
+  <style name="ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox.Dense">
+    <item name="editTextStyle">@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense
+    </item>
+  </style>
+  <!-- Set of Theme Overlays to be used internally in the TextInputLayout styles to automatically
+       apply the correct AutoCompleteTextView style to the AutoCompleteTextView. -->
+  <style name="ThemeOverlay.MaterialComponents.AutoCompleteTextView" parent="">
+    <item name="colorControlActivated">?attr/colorPrimary</item>
+  </style>
+  <style name="ThemeOverlay.MaterialComponents.AutoCompleteTextView.FilledBox">
+    <item name="autoCompleteTextViewStyle">
+      @style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox
+    </item>
+  </style>
+  <style name="ThemeOverlay.MaterialComponents.AutoCompleteTextView.FilledBox.Dense">
+    <item name="autoCompleteTextViewStyle">
+      @style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox.Dense
+    </item>
+  </style>
+  <style name="ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox">
+    <item name="autoCompleteTextViewStyle">
+      @style/Widget.MaterialComponents.AutoCompleteTextView.OutlinedBox
+    </item>
+  </style>
+  <style name="ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox.Dense">
+    <item name="autoCompleteTextViewStyle">
+      @style/Widget.MaterialComponents.AutoCompleteTextView.OutlinedBox.Dense
+    </item>
+  </style>
+  <!-- Text appearance styles. -->
+  <style name="TextAppearance.Design.HelperText" parent="TextAppearance.AppCompat.Caption"/>
+  <style name="TextAppearance.Design.Hint" parent="TextAppearance.AppCompat.Caption">
+    <item name="android:textColor">?attr/colorControlActivated</item>
+  </style>
+  <style name="TextAppearance.Design.Placeholder" parent="TextAppearance.AppCompat.Body1"/>
+  <style name="TextAppearance.Design.Prefix" parent="TextAppearance.AppCompat.Body1"/>
+  <style name="TextAppearance.Design.Suffix" parent="TextAppearance.AppCompat.Body1"/>
+  <style name="TextAppearance.Design.Error" parent="TextAppearance.AppCompat.Caption">
+    <item name="android:textColor">@color/design_error</item>
+  </style>
+  <style name="TextAppearance.Design.Counter" parent="TextAppearance.AppCompat.Caption"/>
+  <style name="TextAppearance.Design.Counter.Overflow" parent="TextAppearance.AppCompat.Caption">
+    <item name="android:textColor">@color/design_error</item>
+  </style>
+  <!-- Shape appearance styles. -->
+  <style name="ShapeAppearanceOverlay.MaterialComponents.TextInputLayout.FilledBox" parent="">
+    <item name="cornerSizeBottomLeft">@dimen/mtrl_textinput_box_corner_radius_small</item>
+    <item name="cornerSizeBottomRight">@dimen/mtrl_textinput_box_corner_radius_small</item>
+  </style>
+  <!-- Style for an M3 Outlined text field. -->
+  <style name="Widget.Material3.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox</item>
+    <item name="boxStrokeColor">@color/m3_textfield_stroke_color</item>
+    <item name="boxStrokeErrorColor">@macro/m3_comp_outlined_text_field_error_outline_color</item>
+    <item name="helperTextTextColor">@color/m3_textfield_indicator_text_color</item>
+    <item name="counterTextColor">@color/m3_textfield_indicator_text_color</item>
+    <item name="counterOverflowTextColor">@macro/m3_comp_outlined_text_field_error_supporting_text_color</item>
+    <item name="hintTextColor">@color/m3_textfield_label_color</item>
+    <item name="android:textColorHint">@color/m3_textfield_label_color</item>
+    <item name="placeholderTextColor">@color/m3_textfield_indicator_text_color</item>
+    <item name="prefixTextColor">@color/m3_textfield_indicator_text_color</item>
+    <item name="suffixTextColor">@color/m3_textfield_indicator_text_color</item>
+    <item name="errorTextColor">@macro/m3_comp_outlined_text_field_error_supporting_text_color</item>
+    <item name="errorIconTint">@macro/m3_comp_outlined_text_field_error_trailing_icon_color</item>
+    <item name="startIconTint">@color/m3_textfield_indicator_text_color</item>
+    <item name="endIconTint">@color/m3_textfield_indicator_text_color</item>
+    <item name="passwordToggleDrawable">@drawable/m3_password_eye</item>
+    <item name="counterTextAppearance">@macro/m3_comp_outlined_text_field_supporting_text_type</item>
+    <item name="counterOverflowTextAppearance">@macro/m3_comp_outlined_text_field_supporting_text_type</item>
+    <item name="errorTextAppearance">@macro/m3_comp_outlined_text_field_supporting_text_type</item>
+    <item name="helperTextTextAppearance">@macro/m3_comp_outlined_text_field_supporting_text_type</item>
+    <item name="hintTextAppearance">@macro/m3_comp_outlined_text_field_supporting_text_type</item>
+    <!-- Using same token from input text text appearance. -->
+    <item name="placeholderTextAppearance">@macro/m3_comp_outlined_text_field_input_text_type</item>
+    <item name="prefixTextAppearance">?attr/textAppearanceTitleMedium</item>
+    <item name="suffixTextAppearance">?attr/textAppearanceTitleMedium</item>
+    <!-- By default the cursor color is controlled via ?attr/colorControlActivated. -->
+    <item name="cursorColor">@null</item>
+    <item name="cursorErrorColor">@macro/m3_comp_outlined_text_field_error_outline_color</item>
+    <item name="shapeAppearance">@macro/m3_comp_outlined_text_field_container_shape</item>
+    <item name="shapeAppearanceOverlay">@null</item>
+  </style>
+  <!-- Style for a dense M3 Outlined text field. -->
+  <style name="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense</item>
+  </style>
+  <!-- Style to be used for the exposed dropdown menu. -->
+  <style name="Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox</item>
+    <item name="endIconMode">dropdown_menu</item>
+  </style>
+  <!-- Style to be used for the exposed dropdown menu. -->
+  <style name="Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox.Dense</item>
+    <item name="endIconMode">dropdown_menu</item>
+  </style>
+  <!-- Style for a M3 Filled text field. -->
+  <style name="Widget.Material3.TextInputLayout.FilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.TextInputEditText.FilledBox</item>
+    <item name="boxStrokeColor">@color/m3_textfield_stroke_color</item>
+    <item name="boxStrokeErrorColor">@macro/m3_comp_filled_text_field_error_active_indicator_color</item>
+    <item name="boxBackgroundColor">@color/m3_textfield_filled_background_color</item>
+    <item name="helperTextTextColor">@color/m3_textfield_indicator_text_color</item>
+    <item name="counterTextColor">@color/m3_textfield_indicator_text_color</item>
+    <item name="counterOverflowTextColor">@macro/m3_comp_filled_text_field_error_supporting_text_color</item>
+    <item name="hintTextColor">@color/m3_textfield_label_color</item>
+    <item name="android:textColorHint">@color/m3_textfield_label_color</item>
+    <item name="placeholderTextColor">@color/m3_textfield_indicator_text_color</item>
+    <item name="prefixTextColor">@color/m3_textfield_indicator_text_color</item>
+    <item name="suffixTextColor">@color/m3_textfield_indicator_text_color</item>
+    <item name="errorTextColor">@macro/m3_comp_filled_text_field_error_supporting_text_color</item>
+    <item name="errorIconTint">@macro/m3_comp_filled_text_field_error_trailing_icon_color</item>
+    <item name="startIconTint">@color/m3_textfield_indicator_text_color</item>
+    <item name="endIconTint">@color/m3_textfield_indicator_text_color</item>
+    <item name="passwordToggleDrawable">@drawable/m3_password_eye</item>
+    <item name="counterTextAppearance">@macro/m3_comp_filled_text_field_supporting_text_type</item>
+    <item name="counterOverflowTextAppearance">@macro/m3_comp_filled_text_field_supporting_text_type</item>
+    <item name="errorTextAppearance">@macro/m3_comp_filled_text_field_supporting_text_type</item>
+    <item name="helperTextTextAppearance">@macro/m3_comp_filled_text_field_supporting_text_type</item>
+    <item name="hintTextAppearance">@macro/m3_comp_filled_text_field_supporting_text_type</item>
+   <!-- Using same token from input text text appearance. -->
+    <item name="placeholderTextAppearance">@macro/m3_comp_filled_text_field_input_text_type</item>
+    <item name="prefixTextAppearance">?attr/textAppearanceTitleMedium</item>
+    <item name="suffixTextAppearance">?attr/textAppearanceTitleMedium</item>
+    <!-- By default the cursor color is controlled via ?attr/colorControlActivated. -->
+    <item name="cursorColor">@null</item>
+    <item name="cursorErrorColor">@macro/m3_comp_filled_text_field_error_active_indicator_color</item>
+    <item name="shapeAppearance">@macro/m3_comp_filled_text_field_container_shape</item>
+    <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Material3.Corner.Top</item>
+  </style>
+  <style name="Widget.Material3.TextInputLayout.FilledBox.Dense">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.TextInputEditText.FilledBox.Dense</item>
+  </style>
+  <!-- Style to be used for the exposed dropdown menu. -->
+  <style name="Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox</item>
+    <item name="endIconMode">dropdown_menu</item>
+  </style>
+  <!-- Style to be used for the exposed dropdown menu. -->
+  <style name="Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox.Dense</item>
+    <item name="endIconMode">dropdown_menu</item>
+  </style>
+  <!-- Styles for the M3 TextInputEditText. -->
+  <style name="Widget.Material3.TextInputEditText.OutlinedBox" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+    <item name="android:textAppearance">@macro/m3_comp_outlined_text_field_input_text_type</item>
+    <item name="android:textColor">@color/m3_textfield_input_text_color</item>
+  </style>
+  <style name="Widget.Material3.TextInputEditText.OutlinedBox.Dense" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense">
+    <item name="android:textAppearance">@macro/m3_comp_outlined_text_field_input_text_type</item>
+    <item name="android:textColor">@color/m3_textfield_input_text_color</item>
+  </style>
+  <style name="Widget.Material3.TextInputEditText.FilledBox" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
+    <item name="android:textAppearance">@macro/m3_comp_filled_text_field_input_text_type</item>
+    <item name="android:textColor">@color/m3_textfield_input_text_color</item>
+  </style>
+  <style name="Widget.Material3.TextInputEditText.FilledBox.Dense" parent="Widget.MaterialComponents.TextInputEditText.FilledBox.Dense">
+    <item name="android:textAppearance">@macro/m3_comp_filled_text_field_input_text_type</item>
+    <item name="android:textColor">@color/m3_textfield_input_text_color</item>
+  </style>
+  <!-- Styles for the M3 AutoCompleteTextView. -->
+  <style name="Widget.Material3.AutoCompleteTextView.OutlinedBox" parent="Widget.MaterialComponents.AutoCompleteTextView.OutlinedBox">
+    <item name="android:textAppearance">@macro/m3_comp_outlined_autocomplete_text_field_input_text_type</item>
+    <item name="simpleItemSelectedColor">@macro/m3_comp_list_list_item_selected_container_color</item>
+    <item name="simpleItemSelectedRippleColor">@color/m3_simple_item_ripple_color</item>
+    <item name="simpleItemLayout">@layout/m3_auto_complete_simple_item</item>
+    <item name="dropDownBackgroundTint">@macro/m3_comp_outlined_autocomplete_menu_container_color</item>
+    <item name="android:popupElevation">@dimen/m3_comp_outlined_autocomplete_menu_container_elevation</item>
+  </style>
+  <style name="Widget.Material3.AutoCompleteTextView.OutlinedBox.Dense" parent="Widget.MaterialComponents.AutoCompleteTextView.OutlinedBox.Dense">
+    <item name="android:textAppearance">@macro/m3_comp_outlined_autocomplete_text_field_input_text_type</item>
+    <item name="simpleItemSelectedColor">@macro/m3_comp_list_list_item_selected_container_color</item>
+    <item name="simpleItemSelectedRippleColor">@color/m3_simple_item_ripple_color</item>
+    <item name="simpleItemLayout">@layout/m3_auto_complete_simple_item</item>
+    <item name="dropDownBackgroundTint">@macro/m3_comp_outlined_autocomplete_menu_container_color</item>
+    <item name="android:popupElevation">@dimen/m3_comp_outlined_autocomplete_menu_container_elevation</item>
+  </style>
+  <style name="Widget.Material3.AutoCompleteTextView.FilledBox" parent="Widget.MaterialComponents.AutoCompleteTextView.FilledBox">
+    <item name="android:textAppearance">@macro/m3_comp_filled_autocomplete_text_field_input_text_type</item>
+    <item name="simpleItemSelectedColor">@macro/m3_comp_list_list_item_selected_container_color</item>
+    <item name="simpleItemSelectedRippleColor">@color/m3_simple_item_ripple_color</item>
+    <item name="simpleItemLayout">@layout/m3_auto_complete_simple_item</item>
+    <item name="dropDownBackgroundTint">@macro/m3_comp_filled_autocomplete_menu_container_color</item>
+    <item name="android:popupElevation">@dimen/m3_comp_filled_autocomplete_menu_container_elevation</item>
+  </style>
+  <style name="Widget.Material3.AutoCompleteTextView.FilledBox.Dense" parent="Widget.MaterialComponents.AutoCompleteTextView.FilledBox.Dense">
+    <item name="android:textAppearance">@macro/m3_comp_filled_autocomplete_text_field_input_text_type</item>
+    <item name="simpleItemSelectedColor">@macro/m3_comp_list_list_item_selected_container_color</item>
+    <item name="simpleItemSelectedRippleColor">@color/m3_simple_item_ripple_color</item>
+    <item name="simpleItemLayout">@layout/m3_auto_complete_simple_item</item>
+    <item name="dropDownBackgroundTint">@macro/m3_comp_filled_autocomplete_menu_container_color</item>
+    <item name="android:popupElevation">@dimen/m3_comp_filled_autocomplete_menu_container_elevation</item>
+  </style>
+  <!-- ThemeOverlays to be used internally in the TextInputLayout styles to automatically apply the correct TextInputEditText style to the TextInputEditText. -->
+  <style name="Base.ThemeOverlay.Material3.TextInputEditText" parent="ThemeOverlay.MaterialComponents.TextInputEditText">
+    <item name="colorControlActivated">@macro/m3_comp_outlined_text_field_caret_color</item>
+  </style>
+  <style name="ThemeOverlay.Material3.TextInputEditText" parent="Base.ThemeOverlay.Material3.TextInputEditText">
+    <item name="colorControlNormal">?attr/colorOnSurfaceVariant</item>
+  </style>
+  <style name="ThemeOverlay.Material3.TextInputEditText.FilledBox">
+    <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.FilledBox</item>
+  </style>
+  <style name="ThemeOverlay.Material3.TextInputEditText.FilledBox.Dense">
+    <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.FilledBox.Dense</item>
+  </style>
+  <style name="ThemeOverlay.Material3.TextInputEditText.OutlinedBox">
+    <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.OutlinedBox</item>
+  </style>
+  <style name="ThemeOverlay.Material3.TextInputEditText.OutlinedBox.Dense">
+    <item name="editTextStyle">@style/Widget.Material3.TextInputEditText.OutlinedBox.Dense</item>
+  </style>
+  <!-- ThemeOverlays to be used internally in the TextInputLayout M3 box styles to automatically
+       apply the correct box style to the AutocompleteTextView. -->
+  <style name="Base.ThemeOverlay.Material3.AutoCompleteTextView" parent="ThemeOverlay.MaterialComponents.AutoCompleteTextView">
+    <item name="colorControlActivated">@macro/m3_comp_outlined_autocomplete_text_field_caret_color</item>
+  </style>
+  <style name="ThemeOverlay.Material3.AutoCompleteTextView" parent="Base.ThemeOverlay.Material3.AutoCompleteTextView">
+    <item name="colorControlNormal">?attr/colorOnSurfaceVariant</item>
+  </style>
+  <style name="ThemeOverlay.Material3.AutoCompleteTextView.FilledBox">
+    <item name="autoCompleteTextViewStyle">@style/Widget.Material3.AutoCompleteTextView.FilledBox</item>
+  </style>
+  <style name="ThemeOverlay.Material3.AutoCompleteTextView.FilledBox.Dense">
+    <item name="autoCompleteTextViewStyle">@style/Widget.Material3.AutoCompleteTextView.FilledBox.Dense</item>
+  </style>
+  <style name="ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox">
+    <item name="autoCompleteTextViewStyle">@style/Widget.Material3.AutoCompleteTextView.OutlinedBox</item>
+  </style>
+  <style name="ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox.Dense">
+    <item name="autoCompleteTextViewStyle">@style/Widget.Material3.AutoCompleteTextView.OutlinedBox.Dense</item>
+  </style>
+
+  <!-- ========================================== -->
+  <!-- Button Styles -->
+  <!-- ========================================== -->
+  <!-- Styles for M3 Expressive Button Groups. -->
+  <!-- M3 Expressive Button Group. -->
+  <style name="Widget.Material3Expressive.MaterialButtonGroup" parent="Widget.Material3.MaterialButtonGroup">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.MaterialButtonGroup.Overflow</item>
+  </style>
+  <!-- M3 Expressive Connected Button Group. -->
+  <style name="Widget.Material3Expressive.MaterialButtonGroup.Connected" parent="Widget.Material3.MaterialButtonGroup.Connected">
+    <item name="innerCornerSize">@xml/m3expressive_connected_buttons_inner_corner_size_state_list</item>
+  </style>
+  <!-- M3 Expressive Connected Button Toggle Group (Segmented Button). -->
+  <style name="Widget.Material3Expressive.MaterialButtonToggleGroup" parent="Widget.Material3.MaterialButtonToggleGroup">
+    <item name="innerCornerSize">@xml/m3expressive_connected_buttons_inner_corner_size_state_list</item>
+    <item name="shapeAppearance">@style/ShapeAppearance.M3.Comp.ButtonGroup.Connected.Small.Container.Shape</item>
+    <item name="android:spacing">@dimen/m3_comp_button_group_connected_small_between_space</item>
+  </style>
+  <!-- Theme overlay for the Material button group. -->
+  <style name="ThemeOverlay.Material3Expressive.MaterialButtonGroup.Overflow" parent="ThemeOverlay.Material3.MaterialButtonGroup.Overflow">
+    <item name="materialButtonGroupOverflowButtonStyle">?attr/materialIconButtonFilledTonalStyle</item>
+  </style>
+  <!-- Styles for M3 Expressive Buttons. -->
+  <!-- M3 Expressive filled button style. -->
+  <style name="Widget.Material3Expressive.Button" parent="Widget.Material3.Button">
+    <item name="android:paddingStart">?attr/containerPaddingStart</item>
+    <item name="android:paddingEnd">?attr/containerPaddingEnd</item>
+    <item name="android:paddingTop">?attr/containerPaddingTop</item>
+    <item name="android:paddingBottom">?attr/containerPaddingBottom</item>
+    <item name="android:insetTop">?attr/containerInsetTop</item>
+    <item name="android:insetBottom">?attr/containerInsetBottom</item>
+    <item name="iconPadding">?attr/containerIconPadding</item>
+    <item name="iconSize">?attr/containerIconSize</item>
+    <item name="android:textAppearance">?attr/labelTextAppearance</item>
+    <item name="shapeAppearance">@xml/m3expressive_button_shape_state_list</item>
+    <item name="shapeAppearanceOverlay">@null</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.Button.Filled</item>
+    <item name="materialSizeOverlay">@style/SizeOverlay.Material3Expressive.Button.Small</item>
+  </style>
+  <!-- M3 Expressive tonal button style. -->
+  <style name="Widget.Material3Expressive.Button.TonalButton">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.Button.Tonal</item>
+  </style>
+  <!-- M3 Expressive outlined button style. -->
+  <style name="Widget.Material3Expressive.Button.OutlinedButton">
+    <item name="android:stateListAnimator" tools:ignore="NewApi">@animator/mtrl_btn_unelevated_state_list_anim</item>
+    <item name="elevation">@dimen/m3_sys_elevation_level0</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.Button.Outlined</item>
+    <item name="strokeColor">@color/m3expressive_button_outline_color_selector</item>
+    <item name="strokeWidth">?attr/containerStrokeWidth</item>
+    <item name="backgroundTint">@color/m3expressive_button_outlined_background_color_selector</item>
+  </style>
+  <!-- M3 Expressive elevated button style. -->
+  <style name="Widget.Material3Expressive.Button.ElevatedButton">
+    <item name="android:stateListAnimator" tools:ignore="NewApi">@animator/m3_btn_elevated_btn_state_list_anim</item>
+    <item name="elevation">@dimen/m3_comp_button_elevated_container_elevation</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.Button.Elevated</item>
+  </style>
+  <!-- M3 Expressive text button style. -->
+  <style name="Widget.Material3Expressive.Button.TextButton">
+    <item name="android:stateListAnimator" tools:ignore="NewApi">@animator/mtrl_btn_unelevated_state_list_anim</item>
+    <item name="elevation">@dimen/m3_sys_elevation_level0</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.Button.TextButton</item>
+  </style>
+  <!-- M3 Expressive button style to show in the Dialog component.  -->
+  <style name="Widget.Material3Expressive.Button.TextButton.Dialog">
+    <item name="android:minWidth">@dimen/m3_btn_dialog_btn_min_width</item>
+    <item name="android:layout_marginLeft">@dimen/m3_btn_dialog_btn_spacing</item>
+    <item name="android:layout_marginStart">@dimen/m3_btn_dialog_btn_spacing</item>
+    <item name="android:maxLines">2</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:singleLine">false</item>
+  </style>
+  <style name="Widget.Material3Expressive.Button.TextButton.Dialog.Icon">
+    <item name="android:paddingStart">@dimen/m3_btn_text_btn_icon_padding_left</item>
+    <item name="android:paddingEnd">@dimen/m3_btn_text_btn_icon_padding_right</item>
+  </style>
+  <!-- LINT.IfChange -->
+  <style name="Widget.Material3Expressive.Button.TextButton.Dialog.Flush">
+    <item name="android:layout_marginStart">0dp</item>
+    <item name="android:layout_marginLeft">0dp</item>
+  </style>
+  <!-- LINT.ThenChange(../../../theme/res/values/themes.xml) -->
+  <!-- M3 Expressive button style to show in the Snackbar component. -->
+  <style name="Widget.Material3Expressive.Button.TextButton.Snackbar">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.Button.TextButton.Snackbar</item>
+  </style>
+  <!-- Styles for M3 Expressive Icon Buttons. -->
+  <!-- M3 Expressive icon only button filled container style. -->
+  <style name="Widget.Material3Expressive.Button.IconButton">
+    <item name="android:stateListAnimator" tools:ignore="NewApi">@animator/mtrl_btn_unelevated_state_list_anim</item>
+    <item name="elevation">@dimen/m3_sys_elevation_level0</item>
+    <item name="android:minWidth">@dimen/m3expressive_btn_min_width</item>
+    <item name="android:minHeight">@dimen/m3expressive_btn_min_height</item>
+    <item name="android:insetLeft">?attr/containerInsetLeft</item>
+    <item name="android:insetRight">?attr/containerInsetRight</item>
+    <item name="iconPadding">@dimen/m3_btn_icon_only_icon_padding</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.Button.Filled</item>
+    <item name="materialSizeOverlay">@style/SizeOverlay.Material3Expressive.Button.IconButton.Small</item>
+  </style>
+  <style name="Widget.Material3Expressive.Button.IconButton.Filled"/>
+  <!-- M3 Expressive icon only button in tonal container style. -->
+  <style name="Widget.Material3Expressive.Button.IconButton.Tonal">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.Button.Tonal</item>
+  </style>
+  <!-- M3 Expressive icon only button with an outline style. -->
+  <style name="Widget.Material3Expressive.Button.IconButton.Outlined">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.Button.Outlined</item>
+    <item name="strokeColor">@color/m3expressive_button_outline_color_selector</item>
+    <item name="strokeWidth">?attr/containerStrokeWidth</item>
+    <item name="backgroundTint">@color/m3expressive_button_outlined_background_color_selector</item>
+  </style>
+  <!-- M3 Expressive icon only button without a container or outline style. -->
+  <style name="Widget.Material3Expressive.Button.IconButton.Standard">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3Expressive.Button.IconButton.Standard</item>
+    <item name="backgroundTint">@android:color/transparent</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlays for different color variants. -->
+  <!-- M3 Expressive Button Theme Overlay for the filled color variant. -->
+  <style name="ThemeOverlay.Material3Expressive.Button.Filled" parent="">
+    <item name="colorContainer">@macro/m3_comp_button_filled_container_color</item>
+    <item name="colorContainerChecked">@macro/m3_comp_button_filled_selected_container_color</item>
+    <item name="colorContainerUnchecked">@macro/m3_comp_button_filled_unselected_container_color</item>
+    <item name="colorOnContainer">@macro/m3_comp_button_filled_icon_color</item>
+    <item name="colorOnContainerChecked">@macro/m3_comp_button_filled_selected_icon_color</item>
+    <item name="colorOnContainerUnchecked">@macro/m3_comp_button_filled_unselected_icon_color</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the tonal color variant. -->
+  <style name="ThemeOverlay.Material3Expressive.Button.Tonal" parent="">
+    <item name="colorContainer">@macro/m3_comp_button_tonal_container_color</item>
+    <item name="colorContainerChecked">@macro/m3_comp_button_tonal_selected_container_color</item>
+    <item name="colorContainerUnchecked">@macro/m3_comp_button_tonal_unselected_container_color</item>
+    <item name="colorOnContainer">@macro/m3_comp_button_tonal_icon_color</item>
+    <item name="colorOnContainerChecked">@macro/m3_comp_button_tonal_selected_icon_color</item>
+    <item name="colorOnContainerUnchecked">@macro/m3_comp_button_tonal_unselected_icon_color</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the outlined variant. -->
+  <style name="ThemeOverlay.Material3Expressive.Button.Outlined" parent="">
+    <item name="colorContainer">@android:color/transparent</item>
+    <item name="colorContainerChecked">@macro/m3_comp_button_outlined_selected_container_color</item>
+    <item name="colorContainerUnchecked">@android:color/transparent</item>
+    <item name="colorOnContainer">@macro/m3_comp_button_outlined_icon_color</item>
+    <item name="colorOnContainerChecked">@macro/m3_comp_button_outlined_selected_icon_color</item>
+    <item name="colorOnContainerUnchecked">@macro/m3_comp_button_outlined_unselected_icon_color</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the text only variant. -->
+  <style name="ThemeOverlay.Material3Expressive.Button.TextButton" parent="ThemeOverlay.Material3.Button.TextButton">
+    <item name="colorContainerChecked">?attr/colorContainer</item>
+    <item name="colorContainerUnchecked">?attr/colorContainer</item>
+    <item name="colorOnContainerChecked">?attr/colorOnContainer</item>
+    <item name="colorOnContainerUnchecked">?attr/colorOnSurfaceVariant</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the text only variant on a Snackbar. -->
+  <style name="ThemeOverlay.Material3Expressive.Button.TextButton.Snackbar" parent="ThemeOverlay.Material3.Button.TextButton.Snackbar">
+    <item name="colorContainerChecked">?attr/colorContainer</item>
+    <item name="colorContainerUnchecked">?attr/colorContainer</item>
+    <item name="colorOnContainerChecked">?attr/colorOnContainer</item>
+    <item name="colorOnContainerUnchecked">?attr/colorOnSurfaceInverse</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the elevated container variant. -->
+  <style name="ThemeOverlay.Material3Expressive.Button.Elevated" parent="">
+    <item name="colorContainer">@macro/m3_comp_button_elevated_container_color</item>
+    <item name="colorContainerChecked">@macro/m3_comp_button_elevated_selected_container_color</item>
+    <item name="colorContainerUnchecked">@macro/m3_comp_button_elevated_unselected_container_color</item>
+    <item name="colorOnContainer">@macro/m3_comp_button_elevated_icon_color</item>
+    <item name="colorOnContainerChecked">@macro/m3_comp_button_elevated_selected_icon_color</item>
+    <item name="colorOnContainerUnchecked">@macro/m3_comp_button_elevated_unselected_icon_color</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the icon only variant. -->
+  <style name="ThemeOverlay.Material3Expressive.Button.IconButton.Standard" parent="">
+    <item name="colorContainer">@android:color/transparent</item>
+    <item name="colorContainerChecked">@android:color/transparent</item>
+    <item name="colorContainerUnchecked">@android:color/transparent</item>
+    <item name="colorOnContainer">@macro/m3_comp_icon_button_standard_icon_color</item>
+    <item name="colorOnContainerChecked">@macro/m3_comp_icon_button_standard_selected_icon_color</item>
+    <item name="colorOnContainerUnchecked">@macro/m3_comp_icon_button_standard_unselected_icon_color</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the extra small variant. -->
+  <style name="SizeOverlay.Material3Expressive.Button.Xsmall" parent="">
+    <item name="containerPaddingStart">@dimen/m3_comp_button_xsmall_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_button_xsmall_trailing_space</item>
+    <item name="containerPaddingTop">6dp</item>
+    <item name="containerPaddingBottom">6dp</item>
+    <item name="containerInsetTop">8dp</item>
+    <item name="containerInsetBottom">8dp</item>
+    <item name="containerIconSize">@dimen/m3_comp_button_xsmall_icon_size</item>
+    <item name="containerIconPadding">@dimen/m3_comp_button_xsmall_icon_label_space</item>
+    <item name="containerStrokeWidth">@dimen/m3_comp_button_xsmall_outlined_outline_width</item>
+    <item name="labelTextAppearance">@macro/m3_comp_button_xsmall_label_text</item>
+    <item name="containerShapePressed">@macro/m3_comp_button_xsmall_pressed_container_shape</item>
+    <item name="containerShapeChecked">@macro/m3_comp_button_xsmall_selected_container_shape_round</item>
+    <item name="containerShapeDefault">@style/ShapeAppearance.M3.Comp.Button.Xsmall.Container.Shape.Round</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.Xsmall.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.Button.Xsmall.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_button_xsmall_container_shape_square</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the small variant. -->
+  <style name="SizeOverlay.Material3Expressive.Button.Small" parent="">
+    <item name="containerPaddingStart">@dimen/m3_comp_button_small_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_button_small_trailing_space</item>
+    <item name="containerPaddingTop">10dp</item>
+    <item name="containerPaddingBottom">10dp</item>
+    <item name="containerInsetTop">4dp</item>
+    <item name="containerInsetBottom">4dp</item>
+    <item name="containerIconSize">@dimen/m3_comp_button_small_icon_size</item>
+    <item name="containerIconPadding">@dimen/m3_comp_button_small_icon_label_space</item>
+    <item name="containerStrokeWidth">@dimen/m3_comp_button_small_outlined_outline_width</item>
+    <item name="labelTextAppearance">@macro/m3_comp_button_small_label_text</item>
+    <item name="containerShapePressed">@macro/m3_comp_button_small_pressed_container_shape</item>
+    <item name="containerShapeChecked">@macro/m3_comp_button_small_selected_container_shape_round</item>
+    <item name="containerShapeDefault">@style/ShapeAppearance.M3.Comp.Button.Small.Container.Shape.Round</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.Small.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.Button.Small.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_button_small_container_shape_square</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the medium variant. -->
+  <style name="SizeOverlay.Material3Expressive.Button.Medium" parent="">
+    <item name="containerPaddingStart">@dimen/m3_comp_button_medium_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_button_medium_trailing_space</item>
+    <item name="containerPaddingTop">16dp</item>
+    <item name="containerPaddingBottom">16dp</item>
+    <item name="containerInsetTop">0dp</item>
+    <item name="containerInsetBottom">0dp</item>
+    <item name="containerIconSize">@dimen/m3_comp_button_medium_icon_size</item>
+    <item name="containerIconPadding">@dimen/m3_comp_button_medium_icon_label_space</item>
+    <item name="containerStrokeWidth">@dimen/m3_comp_button_medium_outlined_outline_width</item>
+    <item name="labelTextAppearance">@macro/m3_comp_button_medium_label_text</item>
+    <item name="containerShapePressed">@macro/m3_comp_button_medium_pressed_container_shape</item>
+    <item name="containerShapeChecked">@macro/m3_comp_button_medium_selected_container_shape_round</item>
+    <item name="containerShapeDefault">@style/ShapeAppearance.M3.Comp.Button.Medium.Container.Shape.Round</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.Medium.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.Button.Medium.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_button_medium_container_shape_square</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the large variant. -->
+  <style name="SizeOverlay.Material3Expressive.Button.Large" parent="">
+    <item name="containerPaddingStart">@dimen/m3_comp_button_large_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_button_large_trailing_space</item>
+    <item name="containerPaddingTop">32dp</item>
+    <item name="containerPaddingBottom">32dp</item>
+    <item name="containerInsetTop">0dp</item>
+    <item name="containerInsetBottom">0dp</item>
+    <item name="containerIconSize">@dimen/m3_comp_button_large_icon_size</item>
+    <item name="containerIconPadding">@dimen/m3_comp_button_large_icon_label_space</item>
+    <item name="containerStrokeWidth">@dimen/m3_comp_button_large_outlined_outline_width</item>
+    <item name="labelTextAppearance">@macro/m3_comp_button_large_label_text</item>
+    <item name="containerShapePressed">@macro/m3_comp_button_large_pressed_container_shape</item>
+    <item name="containerShapeChecked">@macro/m3_comp_button_large_selected_container_shape_round</item>
+    <item name="containerShapeDefault">@style/ShapeAppearance.M3.Comp.Button.Large.Container.Shape.Round</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.Large.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.Button.Large.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_button_large_container_shape_square</item>
+  </style>
+  <!-- M3 Expressive Button Theme Overlay for the extra large variant. -->
+  <style name="SizeOverlay.Material3Expressive.Button.Xlarge" parent="">
+    <item name="containerPaddingStart">@dimen/m3_comp_button_xlarge_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_button_xlarge_trailing_space</item>
+    <item name="containerPaddingTop">48dp</item>
+    <item name="containerPaddingBottom">48dp</item>
+    <item name="containerInsetTop">0dp</item>
+    <item name="containerInsetBottom">0dp</item>
+    <item name="containerIconSize">@dimen/m3_comp_button_xlarge_icon_size</item>
+    <item name="containerIconPadding">@dimen/m3_comp_button_xlarge_icon_label_space</item>
+    <item name="containerStrokeWidth">@dimen/m3_comp_button_xlarge_outlined_outline_width</item>
+    <item name="labelTextAppearance">@macro/m3_comp_button_xlarge_label_text</item>
+    <item name="containerShapePressed">@macro/m3_comp_button_xlarge_pressed_container_shape</item>
+    <item name="containerShapeChecked">@macro/m3_comp_button_xlarge_selected_container_shape_round</item>
+    <item name="containerShapeDefault">@style/ShapeAppearance.M3.Comp.Button.Xlarge.Container.Shape.Round</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.Xlarge.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.Button.Xlarge.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_button_xlarge_container_shape_square</item>
+  </style>
+  <!-- M3 Expressive Icon Button Theme Overlay for the extra small variant. -->
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xsmall" parent="">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_xsmall_default_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_xsmall_default_trailing_space</item>
+    <item name="containerPaddingTop">6dp</item>
+    <item name="containerPaddingBottom">6dp</item>
+    <item name="containerInsetTop">8dp</item>
+    <item name="containerInsetBottom">8dp</item>
+    <item name="containerInsetLeft">8dp</item>
+    <item name="containerInsetRight">8dp</item>
+    <item name="containerIconSize">@dimen/m3_comp_icon_button_xsmall_icon_size</item>
+    <item name="containerStrokeWidth">@dimen/m3_comp_icon_button_xsmall_outlined_outline_width</item>
+    <item name="containerShapePressed">@macro/m3_comp_icon_button_xsmall_pressed_container_shape</item>
+    <item name="containerShapeChecked">@macro/m3_comp_icon_button_xsmall_selected_container_shape_round</item>
+    <item name="containerShapeDefault">@style/ShapeAppearance.M3.Comp.IconButton.Xsmall.Container.Shape.Round</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xsmall.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Xsmall.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_xsmall_container_shape_square</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xsmall.Narrow">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_xsmall_narrow_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_xsmall_narrow_trailing_space</item>
+    <item name="containerInsetLeft">10dp</item>
+    <item name="containerInsetRight">10dp</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xsmall.Narrow.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Xsmall.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_xsmall_container_shape_square</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xsmall.Wide">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_xsmall_wide_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_xsmall_wide_trailing_space</item>
+    <item name="containerInsetLeft">4dp</item>
+    <item name="containerInsetRight">4dp</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xsmall.Wide.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Xsmall.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_xsmall_container_shape_square</item>
+  </style>
+  <!-- M3 Expressive Icon Button Theme Overlay for the small variant. -->
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Small" parent="">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_small_default_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_small_default_trailing_space</item>
+    <item name="containerPaddingTop">8dp</item>
+    <item name="containerPaddingBottom">8dp</item>
+    <item name="containerInsetTop">4dp</item>
+    <item name="containerInsetBottom">4dp</item>
+    <item name="containerInsetLeft">4dp</item>
+    <item name="containerInsetRight">4dp</item>
+    <item name="containerIconSize">@dimen/m3_comp_icon_button_small_icon_size</item>
+    <item name="containerStrokeWidth">@dimen/m3_comp_icon_button_small_outlined_outline_width</item>
+    <item name="containerShapePressed">@macro/m3_comp_icon_button_small_pressed_container_shape</item>
+    <item name="containerShapeChecked">@macro/m3_comp_icon_button_small_selected_container_shape_round</item>
+    <item name="containerShapeDefault">@style/ShapeAppearance.M3.Comp.IconButton.Small.Container.Shape.Round</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Small.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Small.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_small_container_shape_square</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Small.Narrow">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_small_narrow_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_small_narrow_trailing_space</item>
+    <item name="containerInsetLeft">8dp</item>
+    <item name="containerInsetRight">8dp</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Small.Narrow.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Small.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_small_container_shape_square</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Small.Wide">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_small_wide_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_small_wide_trailing_space</item>
+    <item name="containerInsetLeft">0dp</item>
+    <item name="containerInsetRight">0dp</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Small.Wide.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Small.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_small_container_shape_square</item>
+  </style>
+  <!-- M3 Expressive Icon Button Theme Overlay for the medium variant. -->
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Medium" parent="">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_medium_default_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_medium_default_trailing_space</item>
+    <item name="containerPaddingTop">16dp</item>
+    <item name="containerPaddingBottom">16dp</item>
+    <item name="containerInsetTop">0dp</item>
+    <item name="containerInsetBottom">0dp</item>
+    <item name="containerInsetLeft">0dp</item>
+    <item name="containerInsetRight">0dp</item>
+    <item name="containerIconSize">@dimen/m3_comp_icon_button_medium_icon_size</item>
+    <item name="containerStrokeWidth">@dimen/m3_comp_icon_button_medium_outlined_outline_width</item>
+    <item name="containerShapePressed">@macro/m3_comp_icon_button_medium_pressed_container_shape</item>
+    <item name="containerShapeChecked">@macro/m3_comp_icon_button_medium_selected_container_shape_round</item>
+    <item name="containerShapeDefault">@style/ShapeAppearance.M3.Comp.IconButton.Medium.Container.Shape.Round</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Medium.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Medium.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_medium_container_shape_square</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Medium.Narrow">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_medium_narrow_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_medium_narrow_trailing_space</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Medium.Narrow.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Medium.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_medium_container_shape_square</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Medium.Wide">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_medium_wide_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_medium_wide_trailing_space</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Medium.Wide.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Medium.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_medium_container_shape_square</item>
+  </style>
+  <!-- M3 Expressive Icon Button Theme Overlay for the large variant. -->
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Large" parent="">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_large_default_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_large_default_trailing_space</item>
+    <item name="containerPaddingTop">32dp</item>
+    <item name="containerPaddingBottom">32dp</item>
+    <item name="containerInsetTop">0dp</item>
+    <item name="containerInsetBottom">0dp</item>
+    <item name="containerInsetLeft">0dp</item>
+    <item name="containerInsetRight">0dp</item>
+    <item name="containerIconSize">@dimen/m3_comp_icon_button_large_icon_size</item>
+    <item name="containerStrokeWidth">@dimen/m3_comp_icon_button_large_outlined_outline_width</item>
+    <item name="containerShapePressed">@macro/m3_comp_icon_button_large_pressed_container_shape</item>
+    <item name="containerShapeChecked">@macro/m3_comp_icon_button_large_selected_container_shape_round</item>
+    <item name="containerShapeDefault">@style/ShapeAppearance.M3.Comp.IconButton.Large.Container.Shape.Round</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Large.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Large.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_large_container_shape_square</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Large.Narrow">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_large_narrow_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_large_narrow_trailing_space</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Large.Narrow.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Large.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_large_container_shape_square</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Large.Wide">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_large_wide_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_large_wide_trailing_space</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Large.Wide.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Large.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_large_container_shape_square</item>
+  </style>
+  <!-- M3 Expressive Icon Button Theme Overlay for the extra large variant. -->
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xlarge" parent="">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_xlarge_default_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_xlarge_default_trailing_space</item>
+    <item name="containerPaddingTop">48dp</item>
+    <item name="containerPaddingBottom">48dp</item>
+    <item name="containerInsetTop">0dp</item>
+    <item name="containerInsetBottom">0dp</item>
+    <item name="containerInsetLeft">0dp</item>
+    <item name="containerInsetRight">0dp</item>
+    <item name="containerIconSize">@dimen/m3_comp_icon_button_xlarge_icon_size</item>
+    <item name="containerStrokeWidth">@dimen/m3_comp_icon_button_xlarge_outlined_outline_width</item>
+    <item name="containerShapePressed">@macro/m3_comp_icon_button_xlarge_pressed_container_shape</item>
+    <item name="containerShapeChecked">@macro/m3_comp_icon_button_xlarge_selected_container_shape_round</item>
+    <item name="containerShapeDefault">@style/ShapeAppearance.M3.Comp.IconButton.Xlarge.Container.Shape.Round</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xlarge.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Xlarge.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_xlarge_container_shape_square</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xlarge.Narrow">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_xlarge_narrow_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_xlarge_narrow_trailing_space</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xlarge.Narrow.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Xlarge.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_xlarge_container_shape_square</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xlarge.Wide">
+    <item name="containerPaddingStart">@dimen/m3_comp_icon_button_xlarge_wide_leading_space</item>
+    <item name="containerPaddingEnd">@dimen/m3_comp_icon_button_xlarge_wide_trailing_space</item>
+  </style>
+  <style name="SizeOverlay.Material3Expressive.Button.IconButton.Xlarge.Wide.Square">
+    <item name="containerShapeChecked">@style/ShapeAppearance.M3.Comp.IconButton.Xlarge.Selected.Container.Shape.Square</item>
+    <item name="containerShapeDefault">@macro/m3_comp_icon_button_xlarge_container_shape_square</item>
+  </style>
+  <!-- Styles for M3 Button Groups. -->
+  <style name="Widget.Material3.MaterialButtonGroup" parent="android:Widget">
+    <item name="android:spacing">@dimen/m3_comp_button_group_standard_small_between_space</item>
+    <item name="buttonSizeChange">@xml/m3_button_group_child_size_change</item>
+    <item name="overflowButtonIcon">@drawable/abc_ic_menu_overflow_material</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.MaterialButtonGroup.Overflow</item>
+  </style>
+  <style name="Widget.Material3.MaterialButtonGroup.Connected">
+    <item name="android:spacing">@dimen/m3_comp_button_group_connected_small_between_space</item>
+    <item name="innerCornerSize">8dp</item>
+    <item name="buttonSizeChange">@null</item>
+    <item name="shapeAppearance">@style/ShapeAppearance.M3.Comp.ButtonGroup.Connected.Small.Container.Shape</item>
+  </style>
+  <style name="Widget.Material3.MaterialButtonToggleGroup" parent="Widget.MaterialComponents.MaterialButtonToggleGroup">
+    <item name="android:spacing">0dp</item>
+    <item name="buttonSizeChange">@null</item>
+  </style>
+  <!-- Theme overlay for the Material button group. -->
+  <style name="ThemeOverlay.Material3.MaterialButtonGroup.Overflow" parent="">
+    <item name="materialButtonGroupPopupMenuStyle">?attr/popupMenuStyle</item>
+    <item name="materialButtonGroupOverflowButtonStyle">?attr/materialIconButtonStyle</item>
+    <!-- Style for the checkbox that appears for checkable overflow menu items. -->
+    <item name="checkboxStyle">@style/Widget.Material3.MaterialButtonGroup.Overflow.CheckBox</item>
+  </style>
+  <style name="Widget.Material3.MaterialButtonGroup.Overflow.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
+    <!-- We want the overflow item's checkbox to look/behave like a decorative
+         trailing checkmark icon, not like a normal checkbox. -->
+    <item name="android:button">@null</item>
+    <item name="buttonIconTint">?attr/colorOnSurfaceVariant</item>
+    <item name="buttonIcon">@drawable/m3_overflow_item_checkbox</item>
+    <item name="android:minWidth">24dp</item>
+    <item name="android:minHeight">24dp</item>
+    <item name="android:background">@android:color/transparent</item>
+  </style>
+  <!-- Styles for M3 Split Button. -->
+  <style name="Widget.Material3.MaterialSplitButton" parent="Widget.Material3.MaterialButtonGroup.Connected">
+    <item name="android:spacing">2dp</item>
+    <item name="android:paddingTop">10dp</item>
+    <item name="android:paddingBottom">10dp</item>
+    <item name="innerCornerSize">@xml/m3_split_button_inner_corner_size_state_list</item>
+    <item name="shapeAppearance">@style/ShapeAppearance.M3.Sys.Shape.Corner.Full</item>
+  </style>
+<style name="Widget.Material3.SplitButton.LeadingButton.Filled" parent="Widget.Material3.Button">
+    <item name="android:paddingTop">6dp</item>
+    <item name="android:paddingBottom">6dp</item>
+    <item name="android:paddingStart">@dimen/m3_comp_split_button_small_leading_button_leading_space</item>
+    <item name="android:paddingEnd">@dimen/m3_comp_split_button_small_leading_button_trailing_space</item>
+    <item name="android:minWidth">@dimen/mtrl_min_touch_target_size</item>
+    <item name="iconSize">20dp</item>
+  </style>
+  <style name="Widget.Material3.SplitButton.LeadingButton.Filled.Tonal" parent="Widget.Material3.Button.TonalButton">
+    <item name="android:paddingTop">6dp</item>
+    <item name="android:paddingBottom">6dp</item>
+    <item name="android:paddingStart">@dimen/m3_comp_split_button_small_leading_button_leading_space</item>
+    <item name="android:paddingEnd">@dimen/m3_comp_split_button_small_leading_button_trailing_space</item>
+    <item name="android:minWidth">@dimen/mtrl_min_touch_target_size</item>
+    <item name="iconSize">20dp</item>
+  </style>
+  <style name="Widget.Material3.SplitButton.IconButton.Filled" parent="Widget.Material3.Button.IconButton.Filled">
+    <item name="android:insetLeft">0dp</item>
+    <item name="android:paddingTop">6dp</item>
+    <item name="android:paddingBottom">6dp</item>
+    <item name="android:paddingStart">14dp</item>
+    <item name="android:paddingEnd">14dp</item>
+    <item name="android:minWidth">@dimen/mtrl_min_touch_target_size</item>
+    <item name="android:textColor">@color/m3_button_foreground_color_selector</item>
+    <item name="iconTint">@color/m3_button_foreground_color_selector</item>
+    <item name="backgroundTint">@color/m3_button_background_color_selector</item>
+    <item name="opticalCenterEnabled">true</item>
+    <item name="materialThemeOverlay">
+      @style/ThemeOverlay.Material3.SplitButton.IconButton.Filled
+    </item>
+  </style>
+  <style name="Widget.Material3.SplitButton.IconButton.Filled.Tonal" parent="Widget.Material3.Button.IconButton.Filled.Tonal">
+    <item name="android:insetLeft">0dp</item>
+    <item name="android:paddingTop">6dp</item>
+    <item name="android:paddingBottom">6dp</item>
+    <item name="android:paddingStart">14dp</item>
+    <item name="android:paddingEnd">14dp</item>
+    <item name="android:minWidth">@dimen/mtrl_min_touch_target_size</item>
+    <item name="android:textColor">@color/m3_button_foreground_color_selector</item>
+    <item name="iconTint">@color/m3_button_foreground_color_selector</item>
+    <item name="backgroundTint">@color/m3_button_background_color_selector</item>
+    <item name="opticalCenterEnabled">true</item>
+    <item name="materialThemeOverlay">
+      @style/ThemeOverlay.Material3.SplitButton.IconButton.Filled.Tonal
+    </item>
+  </style>
+  <!-- Styles of M3 Buttons. -->
+  <!-- M3 filled button style. -->
+  <style name="Widget.Material3.Button" parent="Widget.MaterialComponents.Button">
+    <item name="enforceTextAppearance">false</item>
+    <item name="android:maxWidth">@dimen/m3_btn_max_width</item>
+    <item name="android:paddingLeft">@dimen/m3_btn_padding_left</item>
+    <item name="android:paddingRight">@dimen/m3_btn_padding_right</item>
+    <item name="android:paddingTop">@dimen/m3_btn_padding_top</item>
+    <item name="android:paddingBottom">@dimen/m3_btn_padding_bottom</item>
+    <item name="android:insetTop">@dimen/m3_btn_inset</item>
+    <item name="android:insetBottom">@dimen/m3_btn_inset</item>
+    <item name="android:textAppearance">@macro/m3_comp_button_small_label_text</item>
+    <item name="shapeAppearance">@style/ShapeAppearance.M3.Comp.Button.Small.Container.Shape.Round</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button</item>
+    <item name="android:stateListAnimator">@animator/m3_btn_state_list_anim</item>
+    <item name="elevation">@dimen/m3_comp_button_filled_container_elevation</item>
+    <item name="android:textColor">@color/m3_button_foreground_color_selector</item>
+    <item name="iconTint">@color/m3_button_foreground_color_selector</item>
+    <item name="iconSize">18dp</item>
+    <item name="iconPadding">@dimen/m3_comp_button_small_icon_label_space</item>
+    <item name="backgroundTint">@color/m3_button_background_color_selector</item>
+    <item name="rippleColor">@color/m3_button_ripple_color_selector</item>
+  </style>
+  <!-- M3 filled button with a start-gravity icon style. This adjusts
+       padding slightly to achieve a better visual balance. This style should only be used with a
+       start-gravity icon button. If your icon is end-gravity, mirror the padding such that this
+       adjustment happens on the other side. -->
+  <style name="Widget.Material3.Button.Icon">
+    <item name="android:paddingLeft">@dimen/m3_comp_button_small_leading_space</item>
+    <item name="android:paddingRight">@dimen/m3_btn_icon_btn_padding_right</item>
+  </style>
+  <style name="Widget.Material3.Button.UnelevatedButton">
+    <item name="android:stateListAnimator">@animator/mtrl_btn_unelevated_state_list_anim</item>
+    <item name="elevation">0dp</item>
+  </style>
+  <!-- M3 filled tonal button style. -->
+  <style name="Widget.Material3.Button.TonalButton">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button.TonalButton</item>
+  </style>
+  <!-- M3 filled tonal button with a start-gravity icon style. This adjusts
+       padding slightly to achieve a better visual balance. This style should only be used with a
+       start-gravity icon button. If your icon is end-gravity, mirror the padding such that this
+       adjustment happens to the other side. -->
+  <style name="Widget.Material3.Button.TonalButton.Icon">
+    <item name="android:paddingLeft">@dimen/m3_comp_button_small_leading_space</item>
+    <item name="android:paddingRight">@dimen/m3_btn_icon_btn_padding_right</item>
+  </style>
+  <!-- M3 text button style. -->
+  <style name="Widget.Material3.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+    <item name="enforceTextAppearance">false</item>
+    <item name="android:maxWidth">@dimen/m3_btn_max_width</item>
+    <item name="android:paddingLeft">@dimen/m3_btn_text_btn_padding_left</item>
+    <item name="android:paddingRight">@dimen/m3_btn_text_btn_padding_right</item>
+    <item name="android:paddingTop">@dimen/m3_btn_padding_top</item>
+    <item name="android:paddingBottom">@dimen/m3_btn_padding_bottom</item>
+    <item name="android:insetTop">@dimen/m3_btn_inset</item>
+    <item name="android:insetBottom">@dimen/m3_btn_inset</item>
+    <item name="android:textAppearance">@macro/m3_comp_button_small_label_text</item>
+    <item name="shapeAppearance">@style/ShapeAppearance.M3.Comp.Button.Small.Container.Shape.Round</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button.TextButton</item>
+    <item name="android:textColor">@color/m3_text_button_foreground_color_selector</item>
+    <item name="iconTint">@color/m3_text_button_foreground_color_selector</item>
+    <item name="backgroundTint">@color/m3_text_button_background_color_selector</item>
+    <item name="rippleColor">@color/m3_text_button_ripple_color_selector</item>
+  </style>
+  <!-- M3 text button with a start-gravity icon style. -->
+  <style name="Widget.Material3.Button.TextButton.Icon">
+    <item name="android:paddingLeft">@dimen/m3_btn_text_btn_icon_padding_left</item>
+    <item name="android:paddingRight">@dimen/m3_btn_text_btn_icon_padding_right</item>
+  </style>
+  <!-- M3 button style to show in the Dialog component.  -->
+  <style name="Widget.Material3.Button.TextButton.Dialog">
+    <item name="android:minWidth">@dimen/m3_btn_dialog_btn_min_width</item>
+    <item name="android:layout_marginLeft">@dimen/m3_btn_dialog_btn_spacing</item>
+    <item name="android:layout_marginStart">@dimen/m3_btn_dialog_btn_spacing</item>
+    <item name="android:lines">1</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:singleLine">true</item>
+  </style>
+  <style name="Widget.Material3.Button.TextButton.Dialog.Flush">
+    <item name="android:layout_marginStart">0dp</item>
+    <item name="android:layout_marginLeft">0dp</item>
+  </style>
+  <!-- M3 button with a start-gravity icon style to show in the Dialog component. -->
+  <style name="Widget.Material3.Button.TextButton.Dialog.Icon">
+    <item name="android:paddingLeft">@dimen/m3_btn_text_btn_icon_padding_left</item>
+    <item name="android:paddingRight">@dimen/m3_btn_text_btn_icon_padding_right</item>
+  </style>
+  <!-- M3 button style to show in the Snackbar component. -->
+  <style name="Widget.Material3.Button.TextButton.Snackbar">
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button.TextButton.Snackbar</item>
+  </style>
+  <!-- M3 outlined button style. -->
+  <style name="Widget.Material3.Button.OutlinedButton" parent="Widget.Material3.Button.TextButton">
+    <item name="android:paddingLeft">@dimen/m3_btn_padding_left</item>
+    <item name="android:paddingRight">@dimen/m3_btn_padding_right</item>
+    <item name="strokeColor">@color/m3_button_outline_color_selector</item>
+    <item name="strokeWidth">@dimen/m3_comp_button_small_outlined_outline_width</item>
+  </style>
+  <!-- M3 outlined button with a start-gravity icon style. -->
+  <style name="Widget.Material3.Button.OutlinedButton.Icon">
+    <item name="android:paddingLeft">@dimen/m3_comp_button_small_leading_space</item>
+    <item name="android:paddingRight">@dimen/m3_btn_icon_btn_padding_right</item>
+  </style>
+  <!-- M3 elevated button style. -->
+  <style name="Widget.Material3.Button.ElevatedButton">
+    <item name="android:stateListAnimator">@animator/m3_btn_elevated_btn_state_list_anim</item>
+    <item name="android:textColor">@color/m3_text_button_foreground_color_selector</item>
+    <item name="elevation">@dimen/m3_comp_button_elevated_container_elevation</item>
+    <item name="iconTint">@color/m3_text_button_foreground_color_selector</item>
+    <item name="rippleColor">@color/m3_text_button_ripple_color_selector</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button.ElevatedButton</item>
+  </style>
+  <!-- M3 elevated button with a start-gravity icon style. -->
+  <style name="Widget.Material3.Button.ElevatedButton.Icon">
+    <item name="android:paddingLeft">@dimen/m3_comp_button_small_leading_space</item>
+    <item name="android:paddingRight">@dimen/m3_btn_icon_btn_padding_right</item>
+  </style>
+  <!-- M3 icon only button style.
+       If using an icon bigger than the default size, the padding dimensions
+       should be adjusted to preserve the circular shape. Inset dimensions can
+       also be adjusted if less empty space is desired around the icon.
+       The default dimensions allow for a touch target of 48dp.
+   -->
+  <style name="Widget.Material3.Button.IconButton" parent="Widget.Material3.Button.TextButton">
+    <item name="android:minWidth">@dimen/m3_btn_icon_only_min_width</item>
+    <item name="android:paddingLeft">@dimen/m3_btn_icon_only_default_padding</item>
+    <item name="android:paddingRight">@dimen/m3_btn_icon_only_default_padding</item>
+    <item name="android:paddingTop">@dimen/m3_btn_icon_only_default_padding</item>
+    <item name="android:paddingBottom">@dimen/m3_btn_icon_only_default_padding</item>
+    <item name="android:insetLeft">@dimen/m3_btn_inset</item>
+    <item name="android:insetRight">@dimen/m3_btn_inset</item>
+    <item name="iconSize">@dimen/m3_btn_icon_only_default_size</item>
+    <item name="iconTint">@color/m3_icon_button_icon_color_selector</item>
+    <item name="iconPadding">@dimen/m3_btn_icon_only_icon_padding</item>
+    <item name="shapeAppearance">@style/ShapeAppearance.M3.Comp.IconButton.Small.Container.Shape.Round</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button.IconButton</item>
+  </style>
+  <style name="Widget.Material3.Button.IconButton.Filled">
+    <item name="backgroundTint">@color/m3_filled_icon_button_container_color_selector</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button.IconButton.Filled</item>
+  </style>
+  <style name="Widget.Material3.Button.IconButton.Filled.Tonal">
+    <item name="rippleColor">@color/m3_tonal_button_ripple_color_selector</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.Button.IconButton.Filled.Tonal</item>
+  </style>
+  <style name="Widget.Material3.Button.IconButton.Outlined">
+    <item name="strokeColor">@color/m3_button_outline_color_selector</item>
+    <item name="strokeWidth">@dimen/m3_comp_icon_button_small_outlined_outline_width</item>
+  </style>
+  <!-- DEPRECATED -->
+  <style name="ShapeAppearanceOverlay.Material3.Button" parent="">
+    <item name="cornerSize">50%</item>
+  </style>
+  <style name="ThemeOverlay.Material3.Button" parent="">
+    <!-- The colors used by the color selectors -->
+    <item name="colorOnContainer">@macro/m3_comp_button_filled_icon_color</item>
+    <item name="colorOnContainerChecked">@macro/m3_comp_button_filled_icon_color</item>
+    <item name="colorOnContainerUnchecked">@macro/m3_comp_button_filled_icon_color</item>
+    <item name="colorContainer">@macro/m3_comp_button_filled_container_color</item>
+    <item name="colorContainerChecked">@macro/m3_comp_button_filled_container_color</item>
+    <item name="colorContainerUnchecked">@macro/m3_comp_button_filled_container_color</item>
+  </style>
+  <style name="ThemeOverlay.Material3.Button.TonalButton" parent="">
+    <!-- The colors used by the color selectors -->
+    <item name="colorOnContainer">@macro/m3_comp_button_tonal_icon_color</item>
+    <item name="colorOnContainerChecked">@macro/m3_comp_button_tonal_icon_color</item>
+    <item name="colorOnContainerUnchecked">@macro/m3_comp_button_tonal_icon_color</item>
+    <item name="colorContainer">@macro/m3_comp_button_tonal_container_color</item>
+    <item name="colorContainerChecked">@macro/m3_comp_button_tonal_container_color</item>
+    <item name="colorContainerUnchecked">@macro/m3_comp_button_tonal_container_color</item>
+  </style>
+  <style name="ThemeOverlay.Material3.Button.TextButton" parent="">
+    <!-- The colors used by the color selectors -->
+    <item name="colorOnContainer">@macro/m3_comp_button_text_icon_color</item>
+    <item name="colorContainer">@android:color/transparent</item>
+  </style>
+  <style name="ThemeOverlay.Material3.Button.TextButton.Snackbar">
+    <!-- The colors used by the color selectors -->
+    <item name="colorOnContainer">?attr/colorPrimaryInverse</item>
+  </style>
+  <style name="ThemeOverlay.Material3.Button.ElevatedButton" parent="ThemeOverlay.Material3.Button.TextButton">
+    <!-- The colors used by the color selectors -->
+    <item name="colorContainer">@macro/m3_comp_button_elevated_container_color</item>
+    <item name="colorContainerChecked">@macro/m3_comp_button_elevated_container_color</item>
+    <item name="colorContainerUnchecked">@macro/m3_comp_button_elevated_container_color</item>
+    <item name="colorOnContainer">@macro/m3_comp_button_elevated_icon_color</item>
+  </style>
+  <style name="ThemeOverlay.Material3.Button.IconButton" parent="ThemeOverlay.Material3.Button.TextButton">
+    <!-- The colors used by the color selectors -->
+    <item name="colorOnContainer">?attr/colorPrimary</item>
+    <item name="colorOnContainerUnchecked">?attr/colorOnSurfaceVariant</item>
+  </style>
+  <style name="ThemeOverlay.Material3.Button.IconButton.Filled" parent="ThemeOverlay.Material3.Button">
+    <!-- The colors used by the color selectors -->
+    <item name="colorOnContainer">@macro/m3_comp_icon_button_filled_icon_color</item>
+    <item name="colorOnContainerUnchecked">?attr/colorPrimary</item>
+    <item name="colorContainer">@macro/m3_comp_icon_button_filled_container_color</item>
+  </style>
+  <style name="ThemeOverlay.Material3.SplitButton.IconButton.Filled" parent="ThemeOverlay.Material3.Button.IconButton.Filled">
+    <!-- The colors used by the color selectors -->
+    <item name="colorOnContainerUnchecked">@macro/m3_comp_icon_button_filled_icon_color</item>
+    <item name="colorOnContainerChecked">@macro/m3_comp_icon_button_filled_icon_color</item>
+    <item name="colorContainerUnchecked">@macro/m3_comp_icon_button_filled_container_color</item>
+    <item name="colorContainerChecked">@macro/m3_comp_icon_button_filled_container_color</item>
+  </style>
+  <style name="ThemeOverlay.Material3.Button.IconButton.Filled.Tonal" parent="ThemeOverlay.Material3.Button.TonalButton">
+    <!-- The colors used by the color selectors -->
+    <item name="colorOnContainer">@macro/m3_comp_icon_button_tonal_icon_color</item>
+    <item name="colorOnContainerUnchecked">?attr/colorOnSurfaceVariant</item>
+    <item name="colorContainer">@macro/m3_comp_icon_button_tonal_container_color</item>
+  </style>
+  <style name="ThemeOverlay.Material3.SplitButton.IconButton.Filled.Tonal" parent="ThemeOverlay.Material3.Button.IconButton.Filled.Tonal">
+    <!-- The colors used by the color selectors -->
+    <item name="colorOnContainerUnchecked">@macro/m3_comp_icon_button_tonal_icon_color</item>
+    <item name="colorOnContainerChecked">@macro/m3_comp_icon_button_tonal_icon_color</item>
+    <item name="colorContainerUnchecked">@macro/m3_comp_icon_button_tonal_container_color</item>
+    <item name="colorContainerChecked">@macro/m3_comp_icon_button_tonal_container_color</item>
+  </style>
+  <!-- Styles of M2 Button Groups. -->
+  <style name="Widget.MaterialComponents.MaterialButtonToggleGroup" parent="android:Widget">
+    <item name="singleSelection">false</item>
+  </style>
+  <!-- Styles of M2 Buttons. -->
+  <!-- Defines the base Material button style. -->
+  <style name="Widget.MaterialComponents.Button" parent="Widget.AppCompat.Button">
+    <item name="enforceMaterialTheme">true</item>
+    <item name="android:background">@empty</item>
+    <item name="enforceTextAppearance">true</item>
+    <item name="android:textAppearance">?attr/textAppearanceButton</item>
+    <item name="android:textColor">@color/mtrl_btn_text_color_selector</item>
+    <item name="android:paddingLeft">@dimen/mtrl_btn_padding_left</item>
+    <item name="android:paddingRight">@dimen/mtrl_btn_padding_right</item>
+    <item name="android:paddingTop">@dimen/mtrl_btn_padding_top</item>
+    <item name="android:paddingBottom">@dimen/mtrl_btn_padding_bottom</item>
+    <item name="android:insetLeft">0dp</item>
+    <item name="android:insetRight">0dp</item>
+    <item name="android:insetTop">@dimen/mtrl_btn_inset</item>
+    <item name="android:insetBottom">@dimen/mtrl_btn_inset</item>
+    <item name="android:maxWidth">@dimen/mtrl_btn_max_width</item>
+    <item name="android:stateListAnimator">@animator/mtrl_btn_state_list_anim</item>
+    <item name="cornerRadius">@null</item>
+    <item name="elevation">@dimen/mtrl_btn_elevation</item>
+    <item name="iconPadding">@dimen/mtrl_btn_icon_padding</item>
+    <item name="iconTint">@color/mtrl_btn_text_color_selector</item>
+    <item name="rippleColor">@color/mtrl_btn_ripple_color</item>
+    <item name="backgroundTint">@color/mtrl_btn_bg_color_selector</item>
+    <item name="shapeAppearance">?attr/shapeAppearanceSmallComponent</item>
+  </style>
+  <!-- Defines the style for an elevated MaterialButton with a start-gravity icon. This adjusts
+       padding slightly to achieve a better visual balance. This style should only be used with a
+       start-gravity icon button. If your icon is end-gravity, mirror the padding such that this
+       adjustment happens to the other side. -->
+  <style name="Widget.MaterialComponents.Button.Icon">
+    <item name="android:paddingLeft">@dimen/mtrl_btn_icon_btn_padding_left</item>
+  </style>
+  <style name="Widget.MaterialComponents.Button.UnelevatedButton">
+    <item name="android:stateListAnimator">@animator/mtrl_btn_unelevated_state_list_anim</item>
+    <item name="elevation">0dp</item>
+  </style>
+  <!-- Defines the style for an unelevated MaterialButton with a start-gravity icon. This adjusts
+       padding slightly to achieve a better visual balance. This style should only be used with a
+       start-gravity icon button. If your icon is end-gravity, mirror the padding such that this
+       adjustment happens to the other side. -->
+  <style name="Widget.MaterialComponents.Button.UnelevatedButton.Icon">
+    <item name="android:paddingLeft">@dimen/mtrl_btn_icon_btn_padding_left</item>
+  </style>
+  <style name="Widget.MaterialComponents.Button.TextButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+    <item name="android:textColor">@color/mtrl_text_btn_text_color_selector</item>
+    <item name="android:paddingLeft">@dimen/mtrl_btn_text_btn_padding_left</item>
+    <item name="android:paddingRight">@dimen/mtrl_btn_text_btn_padding_right</item>
+    <item name="iconTint">@color/mtrl_text_btn_text_color_selector</item>
+    <item name="iconPadding">@dimen/mtrl_btn_text_btn_icon_padding</item>
+    <item name="backgroundTint">@color/mtrl_btn_text_btn_bg_color_selector</item>
+    <item name="rippleColor">@color/mtrl_btn_text_btn_ripple_color</item>
+  </style>
+  <style name="Widget.MaterialComponents.Button.TextButton.Icon">
+    <!-- Icon text button has the same padding as a regular text button -->
+  </style>
+  <!-- Button style to show in the Snackbar component. -->
+  <style name="Widget.MaterialComponents.Button.TextButton.Snackbar">
+    <item name="android:textColor">?attr/colorPrimary</item>
+  </style>
+  <style name="Widget.MaterialComponents.Button.OutlinedButton" parent="Widget.MaterialComponents.Button.TextButton">
+    <item name="android:paddingLeft">@dimen/mtrl_btn_padding_left</item>
+    <item name="android:paddingRight">@dimen/mtrl_btn_padding_right</item>
+    <item name="strokeColor">@color/mtrl_btn_stroke_color_selector</item>
+    <item name="strokeWidth">@dimen/mtrl_btn_stroke_size</item>
+  </style>
+  <!-- Defines the style for an outlined MaterialButton with a start-gravity icon. This adjusts
+       padding slightly to achieve a better visual balance. This style should only be used with a
+       start-gravity icon button. If your icon is end-gravity, mirror the padding such that this
+       adjustment happens to the other side. -->
+  <style name="Widget.MaterialComponents.Button.OutlinedButton.Icon">
+    <item name="android:paddingLeft">@dimen/mtrl_btn_icon_btn_padding_left</item>
+  </style>
+  <style name="Widget.MaterialComponents.Button.TextButton.Dialog">
+    <item name="android:minWidth">@dimen/mtrl_btn_dialog_btn_min_width</item>
+    <item name="android:lines">1</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:singleLine">true</item>
+    <item name="android:layout_marginStart">@dimen/mtrl_btn_text_btn_padding_left</item>
+    <item name="android:layout_marginLeft">@dimen/mtrl_btn_text_btn_padding_left</item>
+  </style>
+  <style name="Widget.MaterialComponents.Button.TextButton.Dialog.Flush">
+    <item name="android:layout_marginStart">0dp</item>
+    <item name="android:layout_marginLeft">0dp</item>
+  </style>
+  <style name="Widget.MaterialComponents.Button.TextButton.Dialog.Icon">
+    <!-- Icon text button has the same padding as a regular text button -->
+  </style>
+
+  <!-- ========================================== -->
+  <!-- Datepicker Styles -->
+  <!-- ========================================== -->
+  <style name="MaterialAlertDialog.MaterialComponents.Picker.Date.Spinner" parent="android:Widget.DeviceDefault.DatePicker">
+    <item name="backgroundInsetTop">@dimen/mtrl_alert_dialog_picker_background_inset</item>
+    <item name="backgroundInsetBottom">@dimen/mtrl_alert_dialog_picker_background_inset</item>
+    <item name="shapeAppearance">?attr/shapeAppearanceMediumComponent</item>
+    <item name="android:datePickerMode">spinner</item>
+  </style>
+  <style name="MaterialAlertDialog.MaterialComponents.Picker.Date.Calendar" parent="android:Widget.DeviceDefault.DatePicker">
+    <item name="backgroundInsetTop">@dimen/mtrl_alert_dialog_picker_background_inset</item>
+    <item name="backgroundInsetBottom">@dimen/mtrl_alert_dialog_picker_background_inset</item>
+    <item name="shapeAppearance">?attr/shapeAppearanceMediumComponent</item>
+    <item name="android:datePickerMode">calendar</item>
+    <item name="android:calendarTextColor">?attr/colorOnSurface</item>
+    <item name="android:headerBackground">?attr/colorPrimary</item>
+    <item name="android:headerMonthTextAppearance">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Header.Text</item>
+    <item name="android:headerDayOfMonthTextAppearance">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Header.Text.Day</item>
+    <item name="android:headerYearTextAppearance">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Header.Text</item>
+  </style>
+  <style name="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Header.Text" parent="TextAppearance.MaterialComponents.Headline6">
+    <item name="android:textColor">?attr/colorOnPrimary</item>
+  </style>
+  <style name="ThemeOverlay.MaterialComponents.MaterialAlertDialog.Picker.Date.Header.Text.Day" parent="TextAppearance.MaterialComponents.Headline1">
+    <item name="android:textColor">?attr/colorOnPrimary</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar" parent="android:Widget">
+    <item name="android:windowFullscreen">false</item>
+    <item name="backgroundTint">?attr/colorSurface</item>
+    <item name="shapeAppearance">?attr/shapeAppearanceMediumComponent</item>
+    <item name="dayStyle">@style/Widget.MaterialComponents.MaterialCalendar.Day</item>
+    <item name="dayInvalidStyle">@style/Widget.MaterialComponents.MaterialCalendar.Day.Invalid</item>
+    <item name="daySelectedStyle">@style/Widget.MaterialComponents.MaterialCalendar.Day.Selected</item>
+    <item name="dayTodayStyle">@style/Widget.MaterialComponents.MaterialCalendar.Day.Today</item>
+    <item name="yearStyle">@style/Widget.MaterialComponents.MaterialCalendar.Year</item>
+    <item name="yearSelectedStyle">@style/Widget.MaterialComponents.MaterialCalendar.Year.Selected</item>
+    <item name="yearTodayStyle">@style/Widget.MaterialComponents.MaterialCalendar.Year.Today</item>
+    <item name="rangeFillColor">@color/mtrl_calendar_selected_range</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.Fullscreen" parent="Widget.MaterialComponents.MaterialCalendar">
+    <item name="android:windowFullscreen">true</item>
+    <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Window.Fullscreen</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderLayout" parent="android:Widget">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">@dimen/mtrl_calendar_header_height</item>
+    <item name="android:background">?attr/colorPrimary</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderLayout.Fullscreen">
+    <item name="android:layout_height">@dimen/mtrl_calendar_header_height_fullscreen</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderDivider" parent="android:Widget">
+    <item name="android:visibility">gone</item>
+    <item name="android:background">?attr/colorOnPrimary</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderTitle" parent="Widget.AppCompat.TextView">
+    <item name="android:textAppearance">?attr/textAppearanceOverline</item>
+    <item name="android:textColor">?attr/colorOnPrimary</item>
+    <item name="android:maxLines">1</item>
+    <item name="android:ellipsize">end</item>
+    <item name="autoSizeTextType">uniform</item>
+    <item name="autoSizeMaxTextSize">10sp</item>
+    <item name="autoSizeMinTextSize">2sp</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderSelection" parent="Widget.AppCompat.TextView">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_gravity">top|start</item>
+    <item name="android:textAppearance">?attr/textAppearanceHeadline4</item>
+    <item name="android:textColor">?attr/colorOnPrimary</item>
+    <item name="android:maxLines">@integer/mtrl_calendar_selection_text_lines</item>
+    <item name="android:ellipsize">end</item>
+    <item name="autoSizeTextType">uniform</item>
+    <item name="autoSizeMaxTextSize">34sp</item>
+    <item name="autoSizeMinTextSize">2sp</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderSelection.Fullscreen">
+    <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
+    <item name="android:maxLines">1</item>
+    <item name="autoSizeMaxTextSize">20sp</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderCancelButton" parent="Widget.MaterialComponents.Button.TextButton">
+    <item name="iconTint">?attr/colorOnPrimary</item>
+    <item name="rippleColor">@color/mtrl_btn_ripple_color</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderConfirmButton" parent="Widget.MaterialComponents.Button.TextButton">
+    <item name="android:textColor">@color/mtrl_on_primary_text_btn_text_color_selector</item>
+    <item name="rippleColor">@color/mtrl_btn_ripple_color</item>
+  </style>
+  <style name="Base.Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton" parent="Widget.AppCompat.ImageButton">
+    <item name="android:background">?attr/actionBarItemBackground</item>
+    <item name="android:tint">?attr/colorOnPrimary</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton" parent="Base.Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton">
+    <item name="android:layout_gravity">bottom|end</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.DayTextView" parent="Widget.AppCompat.TextView">
+    <item name="android:textAppearance">?attr/textAppearanceCaption</item>
+    <item name="android:gravity">center</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.MonthTextView" parent="Widget.AppCompat.TextView">
+    <item name="android:textAppearance">?attr/textAppearanceSubtitle2</item>
+    <item name="android:textColor">@color/material_on_surface_emphasis_medium</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.DayOfWeekLabel" parent="">
+    <item name="android:textAppearance">?attr/textAppearanceBody2</item>
+    <item name="android:gravity">center</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.Item" parent="">
+    <item name="itemFillColor">@android:color/transparent</item>
+    <item name="itemTextColor">@color/material_on_surface_emphasis_high_type</item>
+    <item name="itemStrokeColor">@color/mtrl_calendar_item_stroke_color</item>
+    <item name="itemStrokeWidth">1dp</item>
+    <item name="itemShapeAppearance">?attr/shapeAppearanceSmallComponent</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.Day" parent="Widget.MaterialComponents.MaterialCalendar.Item">
+    <item name="itemShapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Day</item>
+    <item name="android:width">@dimen/mtrl_calendar_day_width</item>
+    <item name="android:height">@dimen/mtrl_calendar_day_height</item>
+    <item name="android:insetTop">@dimen/mtrl_calendar_day_vertical_padding</item>
+    <item name="android:insetBottom">@dimen/mtrl_calendar_day_vertical_padding</item>
+    <item name="android:insetLeft">@dimen/mtrl_calendar_day_horizontal_padding</item>
+    <item name="android:insetRight">@dimen/mtrl_calendar_day_horizontal_padding</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.Day.Invalid">
+    <item name="itemTextColor">@color/material_on_surface_disabled</item>
+    <item name="itemStrokeWidth">0dp</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.Day.Selected">
+    <item name="itemFillColor">?attr/colorPrimary</item>
+    <item name="itemTextColor">?attr/colorOnPrimary</item>
+    <item name="itemStrokeWidth">0dp</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.Day.Today">
+    <item name="itemStrokeColor">@color/material_on_surface_emphasis_high_type</item>
+    <item name="itemStrokeWidth">@dimen/mtrl_calendar_day_today_stroke</item>
+  </style>
+  <style name="ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Day" parent="">
+    <item name="cornerSize">@dimen/mtrl_calendar_day_corner</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.Year" parent="Widget.MaterialComponents.MaterialCalendar.Item">
+    <item name="itemShapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Year</item>
+    <item name="android:width">@dimen/mtrl_calendar_year_width</item>
+    <item name="android:height">@dimen/mtrl_calendar_year_height</item>
+    <item name="android:insetTop">@dimen/mtrl_calendar_year_vertical_padding</item>
+    <item name="android:insetBottom">@dimen/mtrl_calendar_year_vertical_padding</item>
+    <item name="android:insetLeft">@dimen/mtrl_calendar_year_horizontal_padding</item>
+    <item name="android:insetRight">@dimen/mtrl_calendar_year_horizontal_padding</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.Year.Selected" parent="Widget.MaterialComponents.MaterialCalendar.Year">
+    <item name="itemFillColor">?attr/colorPrimary</item>
+    <item name="itemTextColor">?attr/colorOnPrimary</item>
+    <item name="itemStrokeColor">?attr/colorOnPrimary</item>
+    <item name="itemStrokeWidth">0dp</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.Year.Today" parent="Widget.MaterialComponents.MaterialCalendar.Year">
+    <item name="itemStrokeColor">@color/material_on_surface_emphasis_high_type</item>
+    <item name="itemStrokeWidth">@dimen/mtrl_calendar_day_today_stroke</item>
+  </style>
+  <style name="Base.Widget.MaterialComponents.MaterialCalendar.NavigationButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog.Flush">
+    <item name="android:textColor">@color/material_on_surface_emphasis_medium</item>
+    <item name="iconTint">@color/material_on_surface_emphasis_medium</item>
+  </style>
+  <style name="Widget.MaterialComponents.MaterialCalendar.YearNavigationButton" parent="Base.Widget.MaterialComponents.MaterialCalendar.NavigationButton"/>
+  <style name="Widget.MaterialComponents.MaterialCalendar.MonthNavigationButton" parent="Base.Widget.MaterialComponents.MaterialCalendar.NavigationButton"/>
+  <style name="ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Year" parent="">
+    <item name="cornerSize">@dimen/mtrl_calendar_year_corner</item>
+  </style>
+  <style name="ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Window.Fullscreen" parent="">
+    <item name="cornerSize">0dp</item>
+  </style>
+  <!-- M3 Date Picker styles -->
+  <style name="Widget.Material3.MaterialCalendar" parent="Widget.MaterialComponents.MaterialCalendar">
+    <item name="android:windowFullscreen">false</item>
+    <item name="backgroundTint">@macro/m3_comp_date_picker_modal_container_color</item>
+    <item name="dayStyle">@style/Widget.Material3.MaterialCalendar.Day</item>
+    <item name="dayInvalidStyle">@style/Widget.Material3.MaterialCalendar.Day.Invalid</item>
+    <item name="daySelectedStyle">@style/Widget.Material3.MaterialCalendar.Day.Selected</item>
+    <item name="dayTodayStyle">@style/Widget.Material3.MaterialCalendar.Day.Today</item>
+    <item name="yearStyle">@style/Widget.Material3.MaterialCalendar.Year</item>
+    <item name="yearSelectedStyle">@style/Widget.Material3.MaterialCalendar.Year.Selected</item>
+    <item name="yearTodayStyle">@style/Widget.Material3.MaterialCalendar.Year.Today</item>
+    <item name="rangeFillColor">@macro/m3_comp_date_picker_modal_range_selection_active_indicator_container_color</item>
+    <item name="shapeAppearance">@macro/m3_comp_date_picker_modal_container_shape</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.Fullscreen">
+    <item name="android:windowFullscreen">true</item>
+    <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.None</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.HeaderLayout" parent="Widget.MaterialComponents.MaterialCalendar.HeaderLayout">
+    <item name="android:layout_height">@dimen/m3_comp_date_picker_modal_header_container_height</item>
+    <item name="android:background">@android:color/transparent</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.HeaderLayout.Fullscreen">
+    <item name="android:layout_height">@dimen/m3_comp_date_picker_modal_range_selection_header_container_height</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.HeaderDivider" parent="Widget.MaterialComponents.MaterialCalendar.HeaderDivider">
+    <item name="android:visibility">gone</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.HeaderTitle" parent="Widget.MaterialComponents.MaterialCalendar.HeaderTitle">
+    <item name="android:textColor">@macro/m3_comp_date_picker_modal_header_supporting_text_color</item>
+    <item name="android:textAppearance">@macro/m3_comp_date_picker_modal_header_supporting_text_type</item>
+    <item name="autoSizeMaxTextSize">14sp</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.HeaderSelection" parent="Widget.MaterialComponents.MaterialCalendar.HeaderSelection">
+    <item name="android:textAppearance">@macro/m3_comp_date_picker_modal_header_headline_type</item>
+    <item name="android:textColor">@macro/m3_comp_date_picker_modal_header_headline_color</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.HeaderSelection.Fullscreen">
+    <item name="android:textAppearance">@macro/m3_comp_date_picker_modal_range_selection_header_headline_type</item>
+    <item name="android:maxLines">1</item>
+    <item name="autoSizeMaxTextSize">20sp</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.HeaderCancelButton" parent="Widget.Material3.Button.TextButton">
+    <item name="iconTint">?attr/colorOnSurfaceVariant</item>
+    <item name="materialThemeOverlay">@style/ThemeOverlay.Material3.MaterialCalendar.HeaderCancelButton</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.HeaderToggleButton" parent="Widget.MaterialComponents.MaterialCalendar.HeaderToggleButton">
+    <item name="android:tint">?attr/colorOnSurfaceVariant</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.DayOfWeekLabel" parent="Widget.MaterialComponents.MaterialCalendar.DayOfWeekLabel">
+    <item name="android:textAppearance">@macro/m3_comp_date_picker_modal_weekdays_label_text_type</item>
+    <item name="android:textColor">@macro/m3_comp_date_picker_modal_weekdays_label_text_color</item>
+    <item name="autoSizeTextType">uniform</item>
+    <item name="autoSizeMaxTextSize">16sp</item>
+    <item name="autoSizeMinTextSize">2sp</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.DayTextView" parent="Widget.MaterialComponents.MaterialCalendar.DayTextView">
+    <item name="android:textAppearance">@macro/m3_comp_date_picker_modal_date_label_text_type</item>
+    <item name="autoSizeTextType">uniform</item>
+    <item name="autoSizeMaxTextSize">16sp</item>
+    <item name="autoSizeMinTextSize">2sp</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.MonthTextView" parent="Widget.MaterialComponents.MaterialCalendar.MonthTextView">
+    <item name="android:textAppearance">@macro/m3_comp_date_picker_modal_range_selection_month_subhead_type</item>
+    <item name="android:textColor">@macro/m3_comp_date_picker_modal_range_selection_month_subhead_color</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.Item" parent="">
+    <item name="itemFillColor">@android:color/transparent</item>
+    <item name="itemTextColor">?attr/colorOnSurface</item>
+    <item name="itemStrokeColor">@color/m3_calendar_item_stroke_color</item>
+    <item name="itemStrokeWidth">1dp</item>
+    <item name="itemShapeAppearance">@style/ShapeAppearance.Material3.Corner.Full</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.Day" parent="Widget.Material3.MaterialCalendar.Item">
+    <item name="itemShapeAppearance">@style/ShapeAppearance.M3.Comp.DatePicker.Modal.Date.Container.Shape</item>
+    <item name="android:width">@dimen/mtrl_calendar_day_width</item>
+    <item name="android:height">@dimen/mtrl_calendar_day_height</item>
+    <item name="android:insetTop">@dimen/mtrl_calendar_day_vertical_padding</item>
+    <item name="android:insetBottom">@dimen/mtrl_calendar_day_vertical_padding</item>
+    <item name="android:insetLeft">@dimen/mtrl_calendar_day_horizontal_padding</item>
+    <item name="android:insetRight">@dimen/mtrl_calendar_day_horizontal_padding</item>
+    <item name="itemTextColor">@macro/m3_comp_date_picker_modal_date_unselected_label_text_color</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.Day.Invalid">
+    <item name="itemTextColor">@color/m3_calendar_item_disabled_text</item>
+    <item name="itemStrokeWidth">0dp</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.Day.Selected">
+    <item name="itemFillColor">@macro/m3_comp_date_picker_modal_date_selected_container_color</item>
+    <item name="itemTextColor">@macro/m3_comp_date_picker_modal_date_selected_label_text_color</item>
+    <item name="itemStrokeWidth">0dp</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.Day.Today">
+    <item name="itemTextColor">@macro/m3_comp_date_picker_modal_date_today_label_text_color</item>
+    <item name="itemStrokeColor">@macro/m3_comp_date_picker_modal_date_today_container_outline_color</item>
+    <item name="itemStrokeWidth">@dimen/m3_comp_date_picker_modal_date_today_container_outline_width</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.Year" parent="Widget.Material3.MaterialCalendar.Item">
+    <item name="android:width">@dimen/mtrl_calendar_year_width</item>
+    <item name="android:height">@dimen/mtrl_calendar_year_height</item>
+    <item name="android:insetTop">@dimen/mtrl_calendar_year_vertical_padding</item>
+    <item name="android:insetBottom">@dimen/mtrl_calendar_year_vertical_padding</item>
+    <item name="android:insetLeft">@dimen/mtrl_calendar_year_horizontal_padding</item>
+    <item name="android:insetRight">@dimen/mtrl_calendar_year_horizontal_padding</item>
+    <item name="itemTextColor">@macro/m3_comp_date_picker_modal_year_selection_year_unselected_label_text_color</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.Year.Selected">
+    <item name="itemFillColor">@macro/m3_comp_date_picker_modal_year_selection_year_selected_container_color</item>
+    <item name="itemTextColor">@macro/m3_comp_date_picker_modal_year_selection_year_selected_label_text_color</item>
+    <item name="itemStrokeWidth">0dp</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.Year.Today">
+    <item name="itemTextColor">?attr/colorPrimary</item>
+    <item name="itemStrokeColor">?attr/colorPrimary</item>
+    <item name="itemStrokeWidth">@dimen/mtrl_calendar_day_today_stroke</item>
+  </style>
+  <style name="Base.Widget.Material3.MaterialCalendar.NavigationButton" parent="Widget.Material3.Button.TextButton.Dialog.Flush">
+    <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    <item name="iconTint">?attr/colorOnSurfaceVariant</item>
+  </style>
+  <style name="Widget.Material3.MaterialCalendar.YearNavigationButton" parent="Base.Widget.Material3.MaterialCalendar.NavigationButton"/>
+  <style name="Widget.Material3.MaterialCalendar.MonthNavigationButton" parent="Base.Widget.Material3.MaterialCalendar.NavigationButton">
+    <item name="iconPadding">0dp</item>
+    <item name="iconGravity">textStart</item>
+  </style>
+  <style name="ThemeOverlay.Material3.MaterialCalendar.HeaderCancelButton" parent="ThemeOverlay.Material3.Button.TextButton">
+    <item name="colorOnContainer">?attr/colorOnSurfaceVariant</item>
+  </style>
+
+  <!-- ========================================== -->
+  <!-- Dialog Styles -->
+  <!-- ========================================== -->
+  <!-- Styles for M3 Expressive Dialogs. -->
+  <style name="MaterialAlertDialog.Material3Expressive" parent="MaterialAlertDialog.Material3">
+    <item name="android:layout">@layout/m3expressive_alert_dialog</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3Expressive.Title.Panel" parent="MaterialAlertDialog.Material3.Title.Panel">
+    <item name="android:paddingLeft">?attr/dialogPreferredPadding</item>
+    <item name="android:paddingRight">?attr/dialogPreferredPadding</item>
+    <item name="android:paddingTop">@dimen/m3expressive_alert_dialog_top_padding</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3Expressive.Title.Panel.CenterStacked">
+    <item name="android:orientation">vertical</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3Expressive.Title.Text" parent="MaterialAlertDialog.Material3.Title.Text">
+    <item name="android:singleLine">false</item>
+    <item name="android:maxLines">4</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3Expressive.Title.Text.CenterStacked">
+    <item name="android:layout_gravity">center</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textAlignment" tools:ignore="NewApi">gravity</item>
+  </style>
+  <!-- Styles for M3 Dialogs. -->
+  <style name="Widget.Material3.CheckedTextView" parent="Widget.MaterialComponents.CheckedTextView">
+    <item name="android:textAppearance">?attr/textAppearanceBodyLarge</item>
+    <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3" parent="MaterialAlertDialog.MaterialComponents">
+    <item name="backgroundTint">@macro/m3_comp_dialog_container_color</item>
+    <item name="enforceMaterialTheme">true</item>
+    <item name="android:layout">@layout/m3_alert_dialog</item>
+    <item name="shapeAppearance">@macro/m3_comp_dialog_container_shape</item>
+  </style>
+  <style name="ShapeAppearanceOverlay.MaterialAlertDialog.Material3" parent="">
+    <item name="cornerSize">@dimen/m3_alert_dialog_corner_size</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3.Title.Panel" parent="MaterialAlertDialog.MaterialComponents.Title.Panel"/>
+  <style name="MaterialAlertDialog.Material3.Title.Panel.CenterStacked">
+    <item name="android:orientation">vertical</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3.Title.Icon" parent="MaterialAlertDialog.MaterialComponents.Title.Icon">
+    <item name="android:layout_width">@dimen/m3_alert_dialog_icon_size</item>
+    <item name="android:layout_height">@dimen/m3_alert_dialog_icon_size</item>
+    <item name="android:layout_marginEnd">@dimen/m3_alert_dialog_icon_margin</item>
+    <item name="android:layout_marginRight">@dimen/m3_alert_dialog_icon_margin</item>
+    <item name="android:theme">@style/ThemeOverlay.MaterialAlertDialog.Material3.Title.Icon</item>
+  </style>
+  <!-- Theme overlay to override icon colors if it's a vector drawable with default colors. -->
+  <style name="ThemeOverlay.MaterialAlertDialog.Material3.Title.Icon" parent="">
+    <item name="colorControlNormal">?attr/colorSecondary</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3.Title.Icon.CenterStacked">
+    <item name="android:layout_marginEnd">0dp</item>
+    <item name="android:layout_marginRight">0dp</item>
+    <item name="android:layout_marginBottom">@dimen/m3_alert_dialog_icon_margin</item>
+    <item name="android:layout_gravity">center</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+    <item name="android:textAppearance">@macro/m3_comp_dialog_headline_type</item>
+    <item name="android:textColor">@macro/m3_comp_dialog_headline_color</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3.Title.Text.CenterStacked">
+    <item name="android:layout_gravity">center</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textAlignment">gravity</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3.Body.Text" parent="">
+    <item name="android:textAppearance">@macro/m3_comp_dialog_supporting_text_type</item>
+    <item name="android:textColor">@macro/m3_comp_dialog_supporting_text_color</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3.Body.Text.CenterStacked">
+    <item name="android:layout_gravity">center</item>
+    <item name="android:gravity">center</item>
+    <item name="android:textAlignment">gravity</item>
+  </style>
+  <style name="MaterialAlertDialog.Material3.Animation">
+    <item name="android:windowEnterAnimation">@anim/m3_motion_fade_enter</item>
+    <item name="android:windowExitAnimation">@anim/m3_motion_fade_exit</item>
+  </style>
+  <!-- Styles for M2 Dialogs. -->
+  <style name="Base.Widget.MaterialComponents.CheckedTextView" parent="android:Widget.Material.CheckedTextView"/>
+  <style name="Widget.MaterialComponents.CheckedTextView" parent="Base.Widget.MaterialComponents.CheckedTextView">
+    <item name="android:textAppearance">?attr/textAppearanceBody1</item>
+    <item name="android:textColor">@color/material_on_surface_emphasis_medium</item>
+  </style>
+  <style name="MaterialAlertDialog.MaterialComponents" parent="AlertDialog.AppCompat">
+    <item name="backgroundTint">?attr/colorSurface</item>
+    <item name="android:layout">@layout/mtrl_alert_dialog</item>
+    <item name="listItemLayout">@layout/mtrl_alert_select_dialog_item</item>
+    <item name="multiChoiceItemLayout">@layout/mtrl_alert_select_dialog_multichoice</item>
+    <item name="singleChoiceItemLayout">@layout/mtrl_alert_select_dialog_singlechoice</item>
+    <item name="backgroundInsetStart">@dimen/mtrl_alert_dialog_background_inset_start</item>
+    <item name="backgroundInsetTop">@dimen/mtrl_alert_dialog_background_inset_top</item>
+    <item name="backgroundInsetEnd">@dimen/mtrl_alert_dialog_background_inset_end</item>
+    <item name="backgroundInsetBottom">@dimen/mtrl_alert_dialog_background_inset_bottom</item>
+    <item name="shapeAppearance">?attr/shapeAppearanceMediumComponent</item>
+  </style>
+  <style name="Base.MaterialAlertDialog.MaterialComponents.Title.Panel" parent="android:Widget">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:paddingLeft">?attr/dialogPreferredPadding</item>
+    <item name="android:paddingRight">?attr/dialogPreferredPadding</item>
+    <item name="android:paddingTop">@dimen/abc_dialog_padding_top_material</item>
+  </style>
+  <style name="Base.MaterialAlertDialog.MaterialComponents.Title.Icon" parent="android:Widget">
+    <item name="android:layout_width">32dip</item>
+    <item name="android:layout_height">32dip</item>
+    <item name="android:scaleType">fitCenter</item>
+    <item name="android:src">@null</item>
+    <item name="android:contentDescription">@null</item>
+    <item name="android:importantForAccessibility">no</item>
+  </style>
+  <style name="Base.MaterialAlertDialog.MaterialComponents.Title.Text" parent="RtlOverlay.DialogWindowTitle.AppCompat">
+    <item name="android:textAppearance">?attr/textAppearanceSubtitle1</item>
+    <item name="android:textColor">@color/material_on_surface_emphasis_high_type</item>
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:ellipsize">end</item>
+    <item name="android:singleLine">true</item>
+  </style>
+  <style name="MaterialAlertDialog.MaterialComponents.Title.Panel"
+      parent="Base.MaterialAlertDialog.MaterialComponents.Title.Panel">
+    <item name="android:orientation">horizontal</item>
+  </style>
+  <style name="MaterialAlertDialog.MaterialComponents.Title.Panel.CenterStacked"
+    parent="Base.MaterialAlertDialog.MaterialComponents.Title.Panel">
+    <item name="android:orientation">vertical</item>
+  </style>
+  <style name="MaterialAlertDialog.MaterialComponents.Title.Icon"
+      parent="Base.MaterialAlertDialog.MaterialComponents.Title.Icon">
+    <item name="android:layout_gravity">start|center_vertical</item>
+    <item name="android:layout_marginEnd">8dip</item>
+    <item name="android:layout_marginRight">8dip</item>
+  </style>
+  <style name="MaterialAlertDialog.MaterialComponents.Title.Icon.CenterStacked"
+    parent="Base.MaterialAlertDialog.MaterialComponents.Title.Icon">
+    <item name="android:layout_gravity">center</item>
+  </style>
+  <style name="MaterialAlertDialog.MaterialComponents.Title.Text"
+      parent="Base.MaterialAlertDialog.MaterialComponents.Title.Text">
+    <item name="android:layout_gravity">start|center_vertical</item>
+    <item name="android:textAlignment">viewStart</item>
+  </style>
+  <style name="MaterialAlertDialog.MaterialComponents.Title.Text.CenterStacked"
+      parent="Base.MaterialAlertDialog.MaterialComponents.Title.Text">
+    <item name="android:layout_gravity">center</item>
+    <item name="android:textAlignment">center</item>
+  </style>
+  <style name="MaterialAlertDialog.MaterialComponents.Body.Text" parent="TextAppearance.MaterialComponents.Body2">
+    <item name="android:textAppearance">?attr/textAppearanceBody2</item>
+    <item name="android:textColor">@color/material_on_surface_emphasis_medium</item>
+  </style>
+
 </resources>

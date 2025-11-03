@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- TextInputLayout IDs -->
+  <item name="textinput_prefix_text" type="id"/>
+  <item name="textinput_suffix_text" type="id"/>
+  <item name="textinput_helper_text" type="id"/>
+  <item name="textinput_error" type="id"/>
+  <item name="textinput_placeholder" type="id"/>
+  <item name="textinput_counter" type="id"/>
+
+  <!-- Password visibility IDs -->
+  <item name="visible" type="id"/>
+  <item name="masked" type="id"/>
+</resources>
