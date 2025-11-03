@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -46,6 +47,9 @@ dependencies {
     api(libs.androidx.customview)
     api(libs.androidx.lifecycle.runtime)
     api(libs.androidx.graphics.shapes)
+
+    // Kotlin standard library (required for androidx.graphics.shapes)
+    implementation(libs.kotlin.stdlib)
 
     // ErrorProne annotations (required by Material Components)
     implementation(libs.errorprone.annotations)
