@@ -22,6 +22,11 @@ errorprone = "2.23.0"
 graphics-shapes = "1.0.1"
 annotation-experimental = "1.4.1"
 kotlin = "1.9.22"
+dynamicanimation = "1.0.0"
+drawerlayout = "1.2.0"
+cardview = "1.0.0"
+viewpager2 = "1.1.0"
+resourceinspection-annotation = "1.0.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -46,6 +51,11 @@ errorprone-annotations = { group = "com.google.errorprone", name = "error_prone_
 androidx-graphics-shapes = { group = "androidx.graphics", name = "graphics-shapes", version.ref = "graphics-shapes" }
 androidx-annotation-experimental = { group = "androidx.annotation", name = "annotation-experimental", version.ref = "annotation-experimental" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
+androidx-dynamicanimation = { group = "androidx.dynamicanimation", name = "dynamicanimation", version.ref = "dynamicanimation" }
+androidx-drawerlayout = { group = "androidx.drawerlayout", name = "drawerlayout", version.ref = "drawerlayout" }
+androidx-cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardview" }
+androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
+androidx-resourceinspection-annotation = { group = "androidx.resourceinspection", name = "resourceinspection-annotation", version.ref = "resourceinspection-annotation" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -47,6 +47,12 @@ dependencies {
     api(libs.androidx.customview)
     api(libs.androidx.lifecycle.runtime)
     api(libs.androidx.graphics.shapes)
+    api(libs.androidx.dynamicanimation)
+    api(libs.androidx.drawerlayout)
+    api(libs.androidx.cardview)
+    api(libs.androidx.viewpager2)
+    api(libs.androidx.resourceinspection.annotation)
+    api(libs.constraintlayout)
 
     // Kotlin standard library (required for androidx.graphics.shapes)
     implementation(libs.kotlin.stdlib)
