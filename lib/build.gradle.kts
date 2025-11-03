@@ -33,6 +33,7 @@ dependencies {
     // AndroidX core dependencies required by datepicker
     api(libs.activity)
     api(libs.androidx.annotation)
+    api(libs.androidx.annotation.experimental)
     api(libs.appcompat)
     api(libs.androidx.core)
     api(libs.androidx.fragment)
@@ -44,6 +45,7 @@ dependencies {
     api(libs.androidx.coordinatorlayout)
     api(libs.androidx.customview)
     api(libs.androidx.lifecycle.runtime)
+    api(libs.androidx.graphics.shapes)
 
     // ErrorProne annotations (required by Material Components)
     implementation(libs.errorprone.annotations)
