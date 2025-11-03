@@ -1,25 +1,26 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
 }
 
 android {
-    namespace = "com.shalom.lib.datepicker"
-    compileSdk = 36
+    namespace = "com.shalom.android.material.datepicker"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.shalom.lib.datepicker"
         minSdk = 26
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        targetSdk = 35
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -29,12 +30,16 @@ android {
 }
 
 dependencies {
-    // Ethiopian Date Picker Library
-    implementation(project(":lib"))
+    // Material Components (includes DatePicker)
+    api(libs.material)
 
+    // ThreeTen Extra for Ethiopian calendar support
+    api(libs.threeten.extra)
+
+    // AndroidX dependencies
     implementation(libs.appcompat)
-    implementation(libs.activity)
-    implementation(libs.constraintlayout)
+
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
