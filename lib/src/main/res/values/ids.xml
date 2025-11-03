@@ -11,4 +11,13 @@
   <!-- Password visibility IDs -->
   <item name="visible" type="id"/>
   <item name="masked" type="id"/>
+
+  <!-- Calendar IDs -->
+  <item name="mtrl_calendar_days_of_week" type="id"/>
+  <item name="mtrl_calendar_months" type="id"/>
+  <item name="month_navigation_previous" type="id"/>
+  <item name="month_navigation_next" type="id"/>
+  <item name="mtrl_calendar_year_selector_frame" type="id"/>
+  <item name="mtrl_calendar_day_selector_frame" type="id"/>
+  <item name="month_navigation_fragment_toggle" type="id"/>
 </resources>
